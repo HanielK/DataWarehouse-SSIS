@@ -1,0 +1,1087 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/12/2024 11:44:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VSHWAITHAKA01"
+  DTS:CreatorName="ps\haniel.waithaka"
+  DTS:DTSID="{8BFD1A1C-83AB-44B7-B1EA-78D5B190133E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="IFSSendTriggerFile"
+  DTS:PackageType="5"
+  DTS:VersionBuild="127"
+  DTS:VersionGUID="{19B7B4E1-7E4C-428B-9998-7CEA69354835}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ErrorRecords_Connection Manager_csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{22690384-9336-4F4D-B20A-8BF86D2E2CB0}"
+      DTS:ObjectName="ErrorRecords_Connection Manager_csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\TMP\Error Records\LocationPartyAddress_errors.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LOCATION_ID"
+              DTS:DTSID="{19F42308-81EF-4D52-8051-ED7314489AA7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ADDRESS_INFO_ID"
+              DTS:DTSID="{C04D2669-CCD7-484D-8857-232E1A869F64}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IDENTITY"
+              DTS:DTSID="{48DD13F7-BED3-45EB-AB93-48719DD1FF92}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ADDRESS_ID"
+              DTS:DTSID="{9BA28844-059D-4F01-A8DC-98973A67161E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NAME"
+              DTS:DTSID="{EEDA4989-39CF-4132-A2C3-183BBF1A655A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COUNTRY"
+              DTS:DTSID="{6A6B2E1B-DE52-460E-9F1A-BEF8E055122B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PARTY_TYPE"
+              DTS:DTSID="{79182BD0-B4D3-4D77-9C0B-36138B75A281}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION"
+              DTS:DTSID="{E368A434-5BF5-4649-BE76-1DD84719638B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LOCATION_SPECIFIC_ADDRESS"
+              DTS:DTSID="{AD769F8B-56A4-4B07-9227-10D2815AE240}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ADDRESS1"
+              DTS:DTSID="{8AD52EA5-D14F-4CA7-8C42-A46C1A362C22}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ADDRESS2"
+              DTS:DTSID="{D222D0FC-148D-4917-9272-717D7ED7223F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ADDRESS3"
+              DTS:DTSID="{3AEE9A0D-7CA5-4E7C-B7F9-9990BA1F1520}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ADDRESS4"
+              DTS:DTSID="{80184306-1150-4460-918A-2ACD7405D284}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ADDRESS5"
+              DTS:DTSID="{850A3E18-2916-464D-BFB9-C17EFEA55344}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ADDRESS6"
+              DTS:DTSID="{145A881D-D7CC-43EC-8F33-55A17BB4FB5B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZIP_CODE"
+              DTS:DTSID="{C70D248A-1EEB-4163-8A49-55E2912F8BA4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CITY"
+              DTS:DTSID="{2E9823AF-E6FB-42D9-B977-C1E055783FD1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STATE"
+              DTS:DTSID="{1C45A6B5-05B8-4E96-8B2D-F3617268BD13}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PARTY_TYPE_DB"
+              DTS:DTSID="{B644ADE6-C57E-4E67-9606-3B458F4E914D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COUNTRY_CODE"
+              DTS:DTSID="{2CD74744-1EC0-47CE-865C-72ABD860B6C9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COUNTY"
+              DTS:DTSID="{D0879FE1-95F5-4BF0-BFEA-46289CF6BA52}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="304"
+              DTS:DataScale="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VALID_FROM"
+              DTS:DTSID="{B265A4C1-8F19-47D2-A0B7-CA0F3E026E89}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="304"
+              DTS:DataScale="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VALID_TO"
+              DTS:DTSID="{B27FBB4F-3F0C-44EE-ACBA-5186CAC311EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VISIT_ADDRESS"
+              DTS:DTSID="{011E8B96-0F3F-4358-A1AB-42D7BF810A10}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DELIVERY_ADDRESS"
+              DTS:DTSID="{325372B8-7CAF-4409-8E6B-7E1B3EAC0BB4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CONTACT"
+              DTS:DTSID="{4044C661-EA63-4273-B459-8F574CB7F748}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PHONE_NO"
+              DTS:DTSID="{1E761A79-3406-4363-9482-B080168F53C8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="E_MAIL"
+              DTS:DTSID="{6727BB6E-C598-44BE-BBE6-21C1E6C64D3D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRIMARY_ADDRESS"
+              DTS:DTSID="{8D17AAE2-C7C9-4085-921E-E7674062851A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="POSITION_ADDRESS"
+              DTS:DTSID="{1BEFDA21-9656-4786-A840-6EB09C5C1A43}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJKEY"
+              DTS:DTSID="{8EF2F015-66FA-4782-AAA8-73111BDA3F9F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="14"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJVERSION"
+              DTS:DTSID="{CA3913D1-9DC0-4D64-A682-A50891893F72}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJID"
+              DTS:DTSID="{40A551B5-C325-4EBC-9DA8-CC9CA7F6D9A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="meta_last_modified_date"
+              DTS:DTSID="{81380994-C67F-497C-BB80-35214EEECC4F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="meta_is_deleted"
+              DTS:DTSID="{681A3903-EF86-4C57-AADD-831199402CDB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{B7CAE5FE-AB0A-4994-951B-FC7495F80533}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{E4B77768-665C-4FD5-B5C3-DEA2882837D9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[IFSUpload_Flat File Connection Manager.txt]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{84CA6D82-F07C-4FD9-913B-D46560E22953}"
+      DTS:ObjectName="IFSUpload_Flat File Connection Manager.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\psfile3\Data Solutions\DW-DEV\SSIS\IFSUploadTrigger.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJKEY"
+              DTS:DTSID="{E41AA394-3C46-4F52-807C-556CAED7F0FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="14"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJVERSION"
+              DTS:DTSID="{1FC33A38-3ED7-4F8A-90EC-D522BAA87950}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER_ID"
+              DTS:DTSID="{247AF363-5BDF-463D-AD6C-4B35611171E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NAME"
+              DTS:DTSID="{D7F5F273-20D0-4461-85B4-AB7FBDF98CD8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="304"
+              DTS:DataScale="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CREATION_DATE"
+              DTS:DTSID="{74BF1BCD-7777-4FD1-8A0A-C675E871E2D6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ONE_TIME_DB"
+              DTS:DTSID="{F17CD790-7011-490B-86EE-3494FDA71BDB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER_CATEGORY"
+              DTS:DTSID="{A492574F-432E-4E24-9BDA-7FF930F11C7D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F23F197E-AEE2-448C-B418-4802F5A5D6F8}"
+      DTS:ObjectName="NCDIASQ002DV.PSDW_IFS_DV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=NCDIASQ002DV;Initial Catalog=PSDW_IFS_DV;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-IFSSendTriggerFile-{F23F197E-AEE2-448C-B418-4802F5A5D6F8}NCDIASQ002DV.PSDW_IFS_DV;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSIS Connection Manager for Azure Storage]"
+      DTS:CreationName="AzureStorage"
+      DTS:DTSID="{E48B7F9F-B774-4BC1-A12A-28CADBE431A8}"
+      DTS:ObjectName="SSIS Connection Manager for Azure Storage">
+      <DTS:ObjectData>
+        <AzureStorageConnectionManager
+          ConnectionString="AuthType=ServicePrincipal;ServicePrincipalId=bfd3016f-8155-471d-96ee-ae36a8623576;TenantId=d1f8ad8c-baed-4518-a48c-feade60a79f4;AccountName=psdwdvstordata;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
+          ConnectByProxy="False">
+          <ServicePrincipalKey
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVaXw3HPZkyfY4rcoX3NqwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADbRZuW7ooYRk5mBZLwO22ZAAAAAASAAACgAAAAEAAAANQisRufM3S7+3v5DiRyNyxYAAAAB4xzYuyEQxaBpXMF7CWAlk2uBZ1n2cryNWS3Cz6JXWIqjBRgSzaUlZ6AyywB4fvyn7S53RLOAKra7K0MrFlRqFcRTbCi0VJlF2rEMBf3JGAJMQbLyJvjXxQAAADFhsJB+f7qhx5EVL0vTklH6NkYqw</ServicePrincipalKey>
+        </AzureStorageConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3D126D7A-17B3-487E-9710-18D0C50EFD84}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentDateTime">
+      <DTS:VariableValue
+        DTS:DataType="7">11/20/2024 2:38:51 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{759EF78F-1631-475D-BB17-9AF9CBA000B3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filepath">
+      <DTS:VariableValue
+        DTS:DataType="8">landing</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F820A82-CB2D-4749-945B-C8002C3B8D5C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sourcetriggerfile">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-DEV\SSIS\IFSUploadTrigger.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{537F9AD9-39E4-44CD-AA25-1EF6917EAE7D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_Trigger_File">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT [CUSTOMER_ID]       ,[NAME]       ,[CREATION_DATE]       ,[ONE_TIME_DB]       ,[CUSTOMER_CATEGORY]       ,[OBJKEY]       ,[OBJVERSION] 	  FROM [PSDW_IFS_DV].[dbo].[customer_info_tbl] WHERE 1=2</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ED1DE817-B96C-4887-B8F3-7769F5EFB2D2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="Replace (@[User::Sourcetriggerfile],&quot;.txt&quot;,&quot;&quot;) + &quot;_&quot; + (DT_STR,4,1252)DATEPART( &quot;yyyy&quot; , getdate() ) +  &quot;_&quot;+RIGHT(&quot;0&quot; +  (DT_STR,4,1252)DATEPART( &quot;mm&quot; , getdate() ), 2) + &quot;_&quot;+ RIGHT(&quot;0&quot; + (DT_STR,4,1252)DATEPART( &quot;dd&quot; , getdate() ), 2)+ &quot;_&quot; + RIGHT(&quot;0&quot; + (DT_STR,4,1252)DATEPART( &quot;hh&quot; , getdate() ), 2) + RIGHT(&quot;0&quot; + (DT_STR,4,1252)DATEPART( &quot;mi&quot; , getdate() ), 2) + RIGHT(&quot;0&quot; + (DT_STR,4,1252)DATEPART( &quot;ss&quot; , getdate() ), 0) + &quot;.txt&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TargetTriggerfilename">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-DEV\SSIS\IFSUploadTrigger_2024_11_22_1318.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{60E0E088-3AAF-4812-B599-8CA6B09410BB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TrigInputParameters">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-DEV\SSIS\IFSUploadTrigger.txt "/C echo off &gt; " + @[User::Sourcetriggerfile]</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Send Trigger File to Landing"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{C8C4038B-C3A8-40BC-AAA1-39D7E1C006E4}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Trigger File to Landing">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Send Trigger File to Landing\Azure Blob Upload Trig File"
+          DTS:CreationName="CopyToBlobTask"
+          DTS:Description="Azure Blob Upload Task"
+          DTS:DTSID="{62A0680C-5E4B-4B36-8256-A3F1DE0F78AF}"
+          DTS:ExecutableType="CopyToBlobTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Azure Blob Upload Trig File"
+          DTS:TaskContact="Azure Blob Upload Task; (C) Microsoft Corporation; All Rights Reserved"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <CopyToBlobTask
+              ConnectionId="{E48B7F9F-B774-4BC1-A12A-28CADBE431A8}"
+              BlobContainer="landing"
+              BlobDirectory="ifs/trigger/"
+              LocalDirectory="\\psfile3\Data Solutions\DW-DEV\SSIS\"
+              FileNameFilter="IFSUploadTrigger*.txt*"
+              TimeRangeFrom="1/1/1900 12:00:00 AM -05:00"
+              TimeRangeTo="12/31/2200 12:00:00 AM -05:00"
+              SearchRecursively="0" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Send Trigger File to Landing\File System Task - Change Trig Filename"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{078C1622-8F8A-406A-AB16-24399AA53620}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task - Change Trig Filename"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::Sourcetriggerfile"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::TargetTriggerfilename"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Send Trigger File to Landing\Genereate Trigger File"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{4025BF1A-94AE-451B-B315-0F630EEDF81D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Genereate Trigger File"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[IFSUpload_Flat File Connection Manager.txt]"
+                      connectionManagerRefId="Package.ConnectionManagers[IFSUpload_Flat File Connection Manager.txt]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJKEY]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OBJKEY"
+                          externalMetadataColumnId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJKEY]" />
+                        <inputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJVERSION]"
+                          cachedDataType="wstr"
+                          cachedLength="14"
+                          cachedName="OBJVERSION"
+                          externalMetadataColumnId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJVERSION]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="CUSTOMER_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="100"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CREATION_DATE]"
+                          dataType="dbTimeStamp2"
+                          name="CREATION_DATE"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ONE_TIME_DB]"
+                          dataType="wstr"
+                          length="20"
+                          name="ONE_TIME_DB" />
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER_CATEGORY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CUSTOMER_CATEGORY" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC Get Records"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::SQL_Trigger_File</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+                      connectionManagerRefId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          length="50"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          name="OBJKEY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          length="14"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          name="OBJVERSION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_ID]"
+                          length="20"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]"
+                          name="CUSTOMER_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          length="100"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[NAME]"
+                          name="NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CREATION_DATE]"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                          name="CREATION_DATE"
+                          scale="7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[ONE_TIME_DB]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[ONE_TIME_DB]"
+                          length="20"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[ONE_TIME_DB]"
+                          name="ONE_TIME_DB"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CUSTOMER_CATEGORY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_CATEGORY]"
+                          length="4000"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CUSTOMER_CATEGORY]"
+                          name="CUSTOMER_CATEGORY"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="CUSTOMER_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="100"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CREATION_DATE]"
+                          dataType="dbTimeStamp2"
+                          name="CREATION_DATE"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[ONE_TIME_DB]"
+                          dataType="wstr"
+                          length="20"
+                          name="ONE_TIME_DB" />
+                        <externalMetadataColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_CATEGORY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CUSTOMER_CATEGORY" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_ID]"
+                          name="CUSTOMER_ID" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          name="NAME" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CREATION_DATE]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CREATION_DATE]"
+                          name="CREATION_DATE"
+                          scale="7" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ONE_TIME_DB]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ONE_TIME_DB]"
+                          name="ONE_TIME_DB" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_CATEGORY]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_CATEGORY]"
+                          name="CUSTOMER_CATEGORY" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          name="OBJKEY" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          name="OBJVERSION" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Send Trigger File to Landing\Genereate Trigger File.Paths[OLE DB Source Output]"
+                  endId="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Send Trigger File to Landing.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{4565B9C9-0383-4186-B083-9D09AF42024E}"
+          DTS:From="Package\Send Trigger File to Landing\Genereate Trigger File"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Send Trigger File to Landing\File System Task - Change Trig Filename" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Send Trigger File to Landing.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{6300F1BA-199B-438C-A52E-473C35F2CB9F}"
+          DTS:From="Package\Send Trigger File to Landing\File System Task - Change Trig Filename"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Send Trigger File to Landing\Azure Blob Upload Trig File" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Send Trigger File to Landing\Azure Blob Upload Trig File"
+          TopLeft="30,208" />
+        <NodeLayout
+          Size="281,42"
+          Id="Package\Send Trigger File to Landing\File System Task - Change Trig Filename"
+          TopLeft="1,124" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Send Trigger File to Landing\Genereate Trigger File"
+          TopLeft="46,39" />
+        <EdgeLayout
+          Id="Package\Send Trigger File to Landing.PrecedenceConstraints[Constraint 3]"
+          TopLeft="141.25,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Send Trigger File to Landing.PrecedenceConstraints[Constraint 4]"
+          TopLeft="139,166">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="296,385"
+          Size="296,428"
+          Id="Package\Send Trigger File to Landing"
+          TopLeft="439,360" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Send Trigger File to Landing\Genereate Trigger File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records"
+          TopLeft="447,57" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Send Trigger File to Landing\Genereate Trigger File\Flat File Destination"
+          TopLeft="452,174" />
+        <EdgeLayout
+          Id="Package\Send Trigger File to Landing\Genereate Trigger File.Paths[OLE DB Source Output]"
+          TopLeft="542.25,99">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75"
+              Start="0,0"
+              End="0,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Send Trigger File to Landing\Genereate Trigger File\OLE_SRC Get Records">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

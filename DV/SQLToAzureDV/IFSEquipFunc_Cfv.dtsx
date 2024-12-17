@@ -1,0 +1,2328 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/12/2024 11:44:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VSHWAITHAKA01"
+  DTS:CreatorName="ps\haniel.waithaka"
+  DTS:DTSID="{7CAD21D3-862D-4A8E-ABCF-F6A20C0E08B7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="IFSEquipFunc_Cfv"
+  DTS:PackageType="5"
+  DTS:VersionBuild="158"
+  DTS:VersionGUID="{CF6F23A3-E154-4F06-80B2-33779B0D0BC9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EquipFunc_Flat File Connection Manager_csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{57942F4C-CF64-4D21-BEB7-0C49A76D7F45}"
+      DTS:ObjectName="EquipFunc_Flat File Connection Manager_csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="\\psfile3\Data Solutions\DW-DEV\SSIS\equipment_functional_cfv.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJKEY"
+              DTS:DTSID="{058B601B-C7D8-452A-B289-CEBAB5B61216}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJVERSION"
+              DTS:DTSID="{7604F6DE-2640-44A3-AABE-30079FDDB668}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJID"
+              DTS:DTSID="{7BB25AEC-C90C-4D80-907C-31FC90AE4E51}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LOCATION_ID"
+              DTS:DTSID="{1A1E790D-D03A-4FC7-B2A3-8E17854D5BDA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CONTRACT"
+              DTS:DTSID="{3609F03C-82EA-4AC6-9EAC-D6833CD1F1A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MCH_CODE"
+              DTS:DTSID="{0E118197-6AC9-4EC8-9A98-79327BA025EF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MCH_NAME"
+              DTS:DTSID="{52A6BEFD-0147-4147-B003-09913F734951}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MCH_TYPE"
+              DTS:DTSID="{8A242837-F393-4190-A3AE-3AD6EB5E053F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SUP_MCH_CODE"
+              DTS:DTSID="{307A8CB8-088B-41FD-80E3-A274A4187600}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MANUFACTURER_NO"
+              DTS:DTSID="{D9C17FC0-FD4E-40C6-B1AA-93D854F4D433}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SERIAL_NO"
+              DTS:DTSID="{B7E64A51-F1FF-4DA8-8840-F2C648CD4633}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SUP_CONTRACT"
+              DTS:DTSID="{C026E53A-8E4B-4D2E-8ACF-227D5BD23C2F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJ_LEVEL"
+              DTS:DTSID="{B88C363D-DBFD-4CA1-9DFA-7DC206D1A4D4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COMPANY"
+              DTS:DTSID="{8222919C-BEEE-4E0E-AA5F-665C410CEBF5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OPERATIONAL_STATUS"
+              DTS:DTSID="{9EA84C89-03B8-4893-9B6C-5CC0A3E1A8A6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJTYPE"
+              DTS:DTSID="{D32325FF-84CA-4CFF-8FD3-083375DDE485}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_ASSET_DESIGNATION"
+              DTS:DTSID="{B4541BB1-0EDF-4F3D-ABCB-F10805869103}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_KW"
+              DTS:DTSID="{F8CE1D3F-08E6-4324-AC87-98276B191B2C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_MODEL_NO"
+              DTS:DTSID="{425EBAED-689B-4065-9FD0-CE186C28B9E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_OBJ_CLASS"
+              DTS:DTSID="{8313EFB3-4265-46DC-B782-6B128828ED81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_OWNER"
+              DTS:DTSID="{7E99A91F-3732-43E5-96E7-424CBCC31F8D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_OWNERSHIP"
+              DTS:DTSID="{7D7BF3FD-90CA-4CC2-BCF1-0B94B6F57DA1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_PROJECT_NO"
+              DTS:DTSID="{1FBA912C-E000-4247-B5A1-BE8F1BA3C151}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_PWS_EQUIPMENT_STATUS"
+              DTS:DTSID="{DE6BCB2B-A355-44E5-AC5A-444075AAA016}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_REGION"
+              DTS:DTSID="{A387EBB4-ADC9-409F-AB66-698D3A3B9C51}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ErrorRecords_Connection Manager_csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7C2664E0-2C74-42B0-8DA0-4A2FB85F2ED8}"
+      DTS:ObjectName="ErrorRecords_Connection Manager_csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\psfile3\Data Solutions\DW-DEV\Error Records\equipment_functional_cfv.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CONTRACT"
+              DTS:DTSID="{E38402BA-9C09-4983-9B9D-C309C4A783B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MCH_CODE"
+              DTS:DTSID="{E4D09A43-0B5E-4F12-8CEC-0EF4775AD2E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MCH_NAME"
+              DTS:DTSID="{3C08194E-6C3D-477A-A63D-2420F0C200AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MCH_TYPE"
+              DTS:DTSID="{FF55EE23-F563-4DFE-917B-B5952D313589}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SUP_MCH_CODE"
+              DTS:DTSID="{84760EAE-830A-4677-A3DF-D0CF065A418F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MANUFACTURER_NO"
+              DTS:DTSID="{C0107FC9-E0AC-46B0-86A3-EC31D46D0AF8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SERIAL_NO"
+              DTS:DTSID="{277E3198-72DF-44D8-B33E-AB9F69ECB934}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SUP_CONTRACT"
+              DTS:DTSID="{3B23878C-7B44-420C-9835-C8A8E53C8EEF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LOCATION_ID"
+              DTS:DTSID="{E082A9E6-ECE8-4B9F-944F-F65E7C53BFDF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJ_LEVEL"
+              DTS:DTSID="{D240BC83-4D81-4225-B2DD-EC202F7897CF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COMPANY"
+              DTS:DTSID="{0C07CC61-E9B8-404C-BFB4-414F9F66C0A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OPERATIONAL_STATUS"
+              DTS:DTSID="{8F9D2EF4-569D-4D7B-8BF3-95393F830C7E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJKEY"
+              DTS:DTSID="{3B6EA5D1-CA12-49C3-87CD-C818DDEFDEF0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJTYPE"
+              DTS:DTSID="{5B2804D5-7E1A-4B84-AF01-0F877D5AE8F1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJVERSION"
+              DTS:DTSID="{77D9C299-15D2-48A8-8D33-80374B6B1748}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJID"
+              DTS:DTSID="{1E02D8A6-1113-4CCC-AB2A-D90EE809438A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_ASSET_DESIGNATION"
+              DTS:DTSID="{0524D644-C822-4104-9BAA-9759FECB07FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_KW"
+              DTS:DTSID="{6F9685EB-4A77-4EAA-A2E4-79122BCFB673}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_MODEL_NO"
+              DTS:DTSID="{E73C1A17-1B00-41FE-8FFE-DC034EB66F42}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_OBJ_CLASS"
+              DTS:DTSID="{2171FA95-0A65-4109-AA83-A1D0006A4F81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_OWNER"
+              DTS:DTSID="{8F7332AF-62F9-4E9A-90F2-483A9148A205}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_OWNERSHIP"
+              DTS:DTSID="{CFCEEC26-3B4C-4942-97D5-CAC59B6B174F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_PROJECT_NO"
+              DTS:DTSID="{947BD30D-8442-4CE8-B717-D0CE18972321}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_PWS_EQUIPMENT_STATUS"
+              DTS:DTSID="{783123E8-D896-4D8F-8872-655153A45018}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CF$_REGION"
+              DTS:DTSID="{130DDB67-B723-4F8B-97ED-B8848A09A421}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{A4E2C0C1-D14A-44EF-AD4C-3CF76105AFC8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{16B61840-8CD4-4227-B29C-A88927F1E1DE}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+      DTS:ObjectName="NCDIASQ002DV.PSDW_IFS_DV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=NCDIASQ002DV;Initial Catalog=PSDW_IFS_DV;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-IFSEquipFunc_Cfv-{BC5B107E-2583-43B6-9107-5F7747E77497}NCDIASQ002DV.PSDW_IFS_DV;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSIS Connection Manager for Azure Storage]"
+      DTS:CreationName="AzureStorage"
+      DTS:DTSID="{E48B7F9F-B774-4BC1-A12A-28CADBE431A8}"
+      DTS:ObjectName="SSIS Connection Manager for Azure Storage">
+      <DTS:ObjectData>
+        <AzureStorageConnectionManager
+          ConnectionString="AuthType=ServicePrincipal;ServicePrincipalId=bfd3016f-8155-471d-96ee-ae36a8623576;TenantId=d1f8ad8c-baed-4518-a48c-feade60a79f4;AccountName=psdwdvstordata;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
+          ConnectByProxy="False">
+          <ServicePrincipalKey
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVaXw3HPZkyfY4rcoX3NqwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD1fHNmwC1DEG2OIxIsTCxWAAAAAASAAACgAAAAEAAAAIwQj3/VOAbGo0ilmaXkD2BYAAAA+HU5a/f25nGRHn27xygnC95CaHZ0DXaK3eBYVzFw33CdXaoeNHMT4vpTw80sQc0f/nM+M5AzrA+tv//HoplyhrC+8KgGQ1rG42Dz1YjwfFb9vlug9ydE4xQAAABWt6GRjA7Wj711I3rtezlUfSNo+A</ServicePrincipalKey>
+        </AzureStorageConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{35185EC1-3868-439F-A211-BF0152FF8D8E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EquipFunc_Cfv">
+      <DTS:VariableValue
+        DTS:DataType="8">equipment_functional_cfv_tbl</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7D6B56B5-C831-4FFE-B815-5C6F9DDB5C92}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filepath">
+      <DTS:VariableValue
+        DTS:DataType="8">landing</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3AC73975-5380-46C4-9199-09B7F0F5263F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sourcefilename">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-DEV\SSIS\equipment_functional_cfv.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DBD65A64-3FC3-4FFD-8D28-E34E84CCB2BF}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT [CONTRACT]&#xA;      ,[MCH_CODE]&#xA;      ,[MCH_NAME]&#xA;      ,[MCH_TYPE]&#xA;      ,[SUP_MCH_CODE]&#xA;      ,[MANUFACTURER_NO]&#xA;      ,[SERIAL_NO]&#xA;      ,[SUP_CONTRACT]&#xA;      ,[LOCATION_ID]&#xA;      ,[OBJ_LEVEL]&#xA;      ,[COMPANY]&#xA;      ,[OPERATIONAL_STATUS]&#xA;      ,[OBJKEY]&#xA;      ,[OBJTYPE]&#xA;      ,[OBJVERSION]&#xA;      ,[OBJID]&#xA;      ,[CF$_ASSET_DESIGNATION]&#xA;      ,[CF$_KW]&#xA;      ,[CF$_MODEL_NO]&#xA;      ,[CF$_OBJ_CLASS]&#xA;      ,[CF$_OWNER]&#xA;      ,[CF$_OWNERSHIP]&#xA;      ,[CF$_PROJECT_NO]&#xA;      ,[CF$_PWS_EQUIPMENT_STATUS]&#xA;      ,[CF$_REGION]&#xA;  FROM [PSDW_IFS_DV].[dbo].[equipment_functional_cfv_tbl]&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_EqupFunc_Cfv_Select">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT [CONTRACT]
+      ,[MCH_CODE]
+      ,[MCH_NAME]
+      ,[MCH_TYPE]
+      ,[SUP_MCH_CODE]
+      ,[MANUFACTURER_NO]
+      ,[SERIAL_NO]
+      ,[SUP_CONTRACT]
+      ,[LOCATION_ID]
+      ,[OBJ_LEVEL]
+      ,[COMPANY]
+      ,[OPERATIONAL_STATUS]
+      ,[OBJKEY]
+      ,[OBJTYPE]
+      ,[OBJVERSION]
+      ,[OBJID]
+      ,[CF$_ASSET_DESIGNATION]
+      ,[CF$_KW]
+      ,[CF$_MODEL_NO]
+      ,[CF$_OBJ_CLASS]
+      ,[CF$_OWNER]
+      ,[CF$_OWNERSHIP]
+      ,[CF$_PROJECT_NO]
+      ,[CF$_PWS_EQUIPMENT_STATUS]
+      ,[CF$_REGION]
+  FROM [PSDW_IFS_DV].[dbo].[equipment_functional_cfv_tbl]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AE3A36B8-BF1C-49F3-B79A-B823CFA98779}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT COUNT(*) AS cnt FROM [PSDW_IFS_DV].[dbo].[equipment_functional_cfv_tbl]&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_Records_Count">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT COUNT(*) AS cnt FROM [PSDW_IFS_DV].[dbo].[equipment_functional_cfv_tbl]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D9E2CA8D-F9D0-40AE-99CA-0F50EC9BBBD0}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="Replace (@[User::Sourcefilename],&quot;.csv&quot;,&quot;&quot;)+&quot;_&quot;  + &quot;tbl&quot; +&quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Targetfilename">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-DEV\SSIS\equipment_functional_cfv_tbl.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{560AC3E6-3E68-4BD4-B37C-B4920A54EC33}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="Replace (@[User::Sourcefilename],&quot;.csv&quot;,&quot;&quot;)+&quot;_&quot; + (DT_WSTR,4)YEAR(GETDATE()) + &quot;_&quot; + (DT_WSTR,4)MONTH(GETDATE()) + &quot;_&quot; + (DT_WSTR,4)DAY(GETDATE()) + &quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Targetfilename_DateTime">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-DEV\SSIS\equipment_functional_cfv_2024_12_4.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AD7BE858-AAAB-48DC-AD54-7417969966AE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TotalRecords">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Package Started"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B84B5BFC-A358-4BDC-84D5-442823F4546D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Package Started"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+          SQLTask:SqlStatementSource="INSERT INTO [PSDW_IFS_DV].[dbo].[az_upload_audit_log_tbl]&#xA;SELECT 'IFSEquipFunc_Cfv','Package Started','SQL to Azure Landing', '', '', 0, getdate(), ''&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A3DF3A87-C713-4E01-B816-BBE0CA6C3C80}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Azure Blob Upload CSV"
+          DTS:CreationName="CopyToBlobTask"
+          DTS:Description="Azure Blob Upload Task"
+          DTS:DTSID="{078E0881-A79E-4809-991B-6E52A2DE56E8}"
+          DTS:ExecutableType="CopyToBlobTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Azure Blob Upload CSV"
+          DTS:TaskContact="Azure Blob Upload Task; (C) Microsoft Corporation; All Rights Reserved"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <CopyToBlobTask
+              ConnectionId="{E48B7F9F-B774-4BC1-A12A-28CADBE431A8}"
+              BlobContainer="landing"
+              BlobDirectory="ifs/equipment_functional_cfv/"
+              LocalDirectory="\\psfile3\Data Solutions\DW-DEV\SSIS\"
+              FileNameFilter="equipment_functional_cfv*csv*"
+              TimeRangeFrom="1/1/1900 12:00:00 AM -05:00"
+              TimeRangeTo="12/31/2200 12:00:00 AM -05:00"
+              SearchRecursively="0" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\File System Task - Change CSV Filename"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{64C5B6FD-B061-4FDE-8391-3629248F26C0}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task - Change CSV Filename"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::Sourcefilename"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::Targetfilename"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Generate EquipFunc_cfv Files"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{54631A44-86B1-4049-86BD-F0A7D10FA626}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Generate EquipFunc_cfv Files"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[EquipFunc_Flat File Connection Manager_csv]"
+                      connectionManagerRefId="Package.ConnectionManagers[EquipFunc_Flat File Connection Manager_csv]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJKEY]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OBJKEY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJKEY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJVERSION]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="OBJVERSION"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJVERSION]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJID]"
+                          cachedDataType="wstr"
+                          cachedLength="18"
+                          cachedName="OBJID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[LOCATION_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="LOCATION_ID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LOCATION_ID]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[LOCATION_ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CONTRACT]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="CONTRACT"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CONTRACT]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CONTRACT]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[MCH_CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="MCH_CODE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MCH_CODE]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[MCH_CODE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[MCH_NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="MCH_NAME"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MCH_NAME]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[MCH_NAME]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[MCH_TYPE]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="MCH_TYPE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MCH_TYPE]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[MCH_TYPE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[SUP_MCH_CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="SUP_MCH_CODE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SUP_MCH_CODE]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[SUP_MCH_CODE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[MANUFACTURER_NO]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="MANUFACTURER_NO"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MANUFACTURER_NO]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[MANUFACTURER_NO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[SERIAL_NO]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="SERIAL_NO"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SERIAL_NO]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[SERIAL_NO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[SUP_CONTRACT]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="SUP_CONTRACT"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SUP_CONTRACT]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[SUP_CONTRACT]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJ_LEVEL]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="OBJ_LEVEL"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJ_LEVEL]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJ_LEVEL]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[COMPANY]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="COMPANY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[COMPANY]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[COMPANY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OPERATIONAL_STATUS]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="OPERATIONAL_STATUS"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OPERATIONAL_STATUS]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OPERATIONAL_STATUS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJTYPE]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="OBJTYPE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJTYPE]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJTYPE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CF$_ASSET_DESIGNATION]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="CF$_ASSET_DESIGNATION"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_ASSET_DESIGNATION]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_ASSET_DESIGNATION]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CF$_KW]"
+                          cachedDataType="r8"
+                          cachedName="CF$_KW"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_KW]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_KW]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CF$_MODEL_NO]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CF$_MODEL_NO"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_MODEL_NO]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_MODEL_NO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CF$_OBJ_CLASS]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="CF$_OBJ_CLASS"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_OBJ_CLASS]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_OBJ_CLASS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CF$_OWNER]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="CF$_OWNER"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_OWNER]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_OWNER]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CF$_OWNERSHIP]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="CF$_OWNERSHIP"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_OWNERSHIP]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_OWNERSHIP]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CF$_PROJECT_NO]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="CF$_PROJECT_NO"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_PROJECT_NO]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_PROJECT_NO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CF$_PWS_EQUIPMENT_STATUS]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="CF$_PWS_EQUIPMENT_STATUS"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_PWS_EQUIPMENT_STATUS]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_PWS_EQUIPMENT_STATUS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CF$_REGION]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="CF$_REGION"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_REGION]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_REGION]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CONTRACT]"
+                          dataType="wstr"
+                          length="5"
+                          name="CONTRACT" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MCH_CODE]"
+                          dataType="wstr"
+                          length="100"
+                          name="MCH_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MCH_NAME]"
+                          dataType="wstr"
+                          length="200"
+                          name="MCH_NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MCH_TYPE]"
+                          dataType="wstr"
+                          length="20"
+                          name="MCH_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SUP_MCH_CODE]"
+                          dataType="wstr"
+                          length="100"
+                          name="SUP_MCH_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MANUFACTURER_NO]"
+                          dataType="wstr"
+                          length="20"
+                          name="MANUFACTURER_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SERIAL_NO]"
+                          dataType="wstr"
+                          length="50"
+                          name="SERIAL_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SUP_CONTRACT]"
+                          dataType="wstr"
+                          length="5"
+                          name="SUP_CONTRACT" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LOCATION_ID]"
+                          dataType="wstr"
+                          length="30"
+                          name="LOCATION_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJ_LEVEL]"
+                          dataType="wstr"
+                          length="30"
+                          name="OBJ_LEVEL" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[COMPANY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="COMPANY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OPERATIONAL_STATUS]"
+                          dataType="wstr"
+                          length="4000"
+                          name="OPERATIONAL_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJTYPE]"
+                          dataType="wstr"
+                          length="30"
+                          name="OBJTYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="40"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          name="OBJID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_ASSET_DESIGNATION]"
+                          dataType="wstr"
+                          length="200"
+                          name="CF$_ASSET_DESIGNATION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_KW]"
+                          dataType="r8"
+                          name="CF$_KW" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_MODEL_NO]"
+                          dataType="wstr"
+                          length="100"
+                          name="CF$_MODEL_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_OBJ_CLASS]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_OBJ_CLASS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_OWNER]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_OWNER" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_OWNERSHIP]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_OWNERSHIP" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_PROJECT_NO]"
+                          dataType="wstr"
+                          length="100"
+                          name="CF$_PROJECT_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_PWS_EQUIPMENT_STATUS]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_PWS_EQUIPMENT_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CF$_REGION]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_REGION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination 1"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[ErrorRecords_Connection Manager_csv]"
+                      connectionManagerRefId="Package.ConnectionManagers[ErrorRecords_Connection Manager_csv]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[LOCATION_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="LOCATION_ID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[LOCATION_ID]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[LOCATION_ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[OBJKEY]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OBJKEY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJKEY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[OBJVERSION]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="OBJVERSION"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[OBJID]"
+                          cachedDataType="wstr"
+                          cachedLength="18"
+                          cachedName="OBJID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[LOCATION_ID]"
+                          dataType="wstr"
+                          length="30"
+                          name="LOCATION_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="40"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          name="OBJID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="i4"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="i4"
+                          name="ErrorColumn" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[CONTRACT]"
+                          dataType="wstr"
+                          length="5"
+                          name="CONTRACT" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[MCH_CODE]"
+                          dataType="wstr"
+                          length="100"
+                          name="MCH_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[MCH_NAME]"
+                          dataType="wstr"
+                          length="200"
+                          name="MCH_NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[MCH_TYPE]"
+                          dataType="wstr"
+                          length="20"
+                          name="MCH_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[SUP_MCH_CODE]"
+                          dataType="wstr"
+                          length="100"
+                          name="SUP_MCH_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[MANUFACTURER_NO]"
+                          dataType="wstr"
+                          length="20"
+                          name="MANUFACTURER_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[SERIAL_NO]"
+                          dataType="wstr"
+                          length="50"
+                          name="SERIAL_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[SUP_CONTRACT]"
+                          dataType="wstr"
+                          length="5"
+                          name="SUP_CONTRACT" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJ_LEVEL]"
+                          dataType="wstr"
+                          length="30"
+                          name="OBJ_LEVEL" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[COMPANY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="COMPANY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OPERATIONAL_STATUS]"
+                          dataType="wstr"
+                          length="4000"
+                          name="OPERATIONAL_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJTYPE]"
+                          dataType="wstr"
+                          length="30"
+                          name="OBJTYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[CF$_ASSET_DESIGNATION]"
+                          dataType="wstr"
+                          length="200"
+                          name="CF$_ASSET_DESIGNATION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[CF$_KW]"
+                          dataType="r8"
+                          name="CF$_KW" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[CF$_MODEL_NO]"
+                          dataType="wstr"
+                          length="100"
+                          name="CF$_MODEL_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[CF$_OBJ_CLASS]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_OBJ_CLASS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[CF$_OWNER]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_OWNER" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[CF$_OWNERSHIP]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_OWNERSHIP" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[CF$_PROJECT_NO]"
+                          dataType="wstr"
+                          length="100"
+                          name="CF$_PROJECT_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[CF$_PWS_EQUIPMENT_STATUS]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_PWS_EQUIPMENT_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[CF$_REGION]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_REGION" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC Get Records"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable">User::SQL_CustInfo_Select</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CUSTOMER_ID]
+      ,[NAME]
+      ,[CREATION_DATE]
+      ,[ASSOCIATION_NO]
+      ,[PARTY]
+      ,[DEFAULT_DOMAIN]
+      ,[DEFAULT_LANGUAGE]
+      ,[DEFAULT_LANGUAGE_DB]
+      ,[COUNTRY]
+      ,[COUNTRY_DB]
+      ,[PARTY_TYPE]
+      ,[PARTY_TYPE_DB]
+      ,[CORPORATE_FORM]
+      ,[IDENTIFIER_REFERENCE]
+      ,[IDENTIFIER_REF_VALIDATION]
+      ,[IDENTIFIER_REF_VALIDATION_DB]
+      ,[PICTURE_ID]
+      ,[ONE_TIME]
+      ,[ONE_TIME_DB]
+      ,[CUSTOMER_CATEGORY]
+      ,[CUSTOMER_CATEGORY_DB]
+      ,[B2B_CUSTOMER]
+      ,[B2B_CUSTOMER_DB]
+      ,[CUSTOMER_TAX_USAGE_TYPE]
+      ,[TEXT_ID$]
+      ,[OBJKEY]
+      ,[OBJVERSION]
+      ,[OBJID]
+      ,[meta_last_modified_date]
+      ,[meta_is_deleted]
+  FROM [PSDW_IFS_DV].[dbo].[customer_info_tbl]
+  order  by  [meta_last_modified_date] desc</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::SQL_EqupFunc_Cfv_Select</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+                      connectionManagerRefId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          name="OBJKEY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          length="40"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          name="OBJVERSION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJID]"
+                          length="18"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJID]"
+                          name="OBJID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[LOCATION_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[LOCATION_ID]"
+                          length="30"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[LOCATION_ID]"
+                          name="LOCATION_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CONTRACT]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CONTRACT]"
+                          length="5"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CONTRACT]"
+                          name="CONTRACT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[MCH_CODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[MCH_CODE]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[MCH_CODE]"
+                          name="MCH_CODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[MCH_NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[MCH_NAME]"
+                          length="200"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[MCH_NAME]"
+                          name="MCH_NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[MCH_TYPE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[MCH_TYPE]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[MCH_TYPE]"
+                          name="MCH_TYPE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[SUP_MCH_CODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[SUP_MCH_CODE]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[SUP_MCH_CODE]"
+                          name="SUP_MCH_CODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[MANUFACTURER_NO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[MANUFACTURER_NO]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[MANUFACTURER_NO]"
+                          name="MANUFACTURER_NO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[SERIAL_NO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[SERIAL_NO]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[SERIAL_NO]"
+                          name="SERIAL_NO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[SUP_CONTRACT]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[SUP_CONTRACT]"
+                          length="5"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[SUP_CONTRACT]"
+                          name="SUP_CONTRACT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJ_LEVEL]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJ_LEVEL]"
+                          length="30"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJ_LEVEL]"
+                          name="OBJ_LEVEL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[COMPANY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[COMPANY]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[COMPANY]"
+                          name="COMPANY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OPERATIONAL_STATUS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OPERATIONAL_STATUS]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OPERATIONAL_STATUS]"
+                          name="OPERATIONAL_STATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJTYPE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJTYPE]"
+                          length="30"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJTYPE]"
+                          name="OBJTYPE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_ASSET_DESIGNATION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_ASSET_DESIGNATION]"
+                          length="200"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_ASSET_DESIGNATION]"
+                          name="CF$_ASSET_DESIGNATION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_KW]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_KW]"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_KW]"
+                          name="CF$_KW"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_MODEL_NO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_MODEL_NO]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_MODEL_NO]"
+                          name="CF$_MODEL_NO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_OBJ_CLASS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_OBJ_CLASS]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_OBJ_CLASS]"
+                          name="CF$_OBJ_CLASS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_OWNER]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_OWNER]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_OWNER]"
+                          name="CF$_OWNER"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_OWNERSHIP]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_OWNERSHIP]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_OWNERSHIP]"
+                          name="CF$_OWNERSHIP"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_PROJECT_NO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_PROJECT_NO]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_PROJECT_NO]"
+                          name="CF$_PROJECT_NO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_PWS_EQUIPMENT_STATUS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_PWS_EQUIPMENT_STATUS]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_PWS_EQUIPMENT_STATUS]"
+                          name="CF$_PWS_EQUIPMENT_STATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_REGION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_REGION]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CF$_REGION]"
+                          name="CF$_REGION"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="40"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          name="OBJID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[LOCATION_ID]"
+                          dataType="wstr"
+                          length="30"
+                          name="LOCATION_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CONTRACT]"
+                          dataType="wstr"
+                          length="5"
+                          name="CONTRACT" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[MCH_CODE]"
+                          dataType="wstr"
+                          length="100"
+                          name="MCH_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[MCH_NAME]"
+                          dataType="wstr"
+                          length="200"
+                          name="MCH_NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[MCH_TYPE]"
+                          dataType="wstr"
+                          length="20"
+                          name="MCH_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[SUP_MCH_CODE]"
+                          dataType="wstr"
+                          length="100"
+                          name="SUP_MCH_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[MANUFACTURER_NO]"
+                          dataType="wstr"
+                          length="20"
+                          name="MANUFACTURER_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[SERIAL_NO]"
+                          dataType="wstr"
+                          length="50"
+                          name="SERIAL_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[SUP_CONTRACT]"
+                          dataType="wstr"
+                          length="5"
+                          name="SUP_CONTRACT" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJ_LEVEL]"
+                          dataType="wstr"
+                          length="30"
+                          name="OBJ_LEVEL" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[COMPANY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="COMPANY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OPERATIONAL_STATUS]"
+                          dataType="wstr"
+                          length="4000"
+                          name="OPERATIONAL_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJTYPE]"
+                          dataType="wstr"
+                          length="30"
+                          name="OBJTYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_ASSET_DESIGNATION]"
+                          dataType="wstr"
+                          length="200"
+                          name="CF$_ASSET_DESIGNATION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_KW]"
+                          dataType="r8"
+                          name="CF$_KW" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_MODEL_NO]"
+                          dataType="wstr"
+                          length="100"
+                          name="CF$_MODEL_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_OBJ_CLASS]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_OBJ_CLASS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_OWNER]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_OWNER" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_OWNERSHIP]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_OWNERSHIP" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_PROJECT_NO]"
+                          dataType="wstr"
+                          length="100"
+                          name="CF$_PROJECT_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_PWS_EQUIPMENT_STATUS]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_PWS_EQUIPMENT_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CF$_REGION]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_REGION" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CONTRACT]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CONTRACT]"
+                          name="CONTRACT" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[MCH_CODE]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[MCH_CODE]"
+                          name="MCH_CODE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[MCH_NAME]"
+                          dataType="wstr"
+                          length="200"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[MCH_NAME]"
+                          name="MCH_NAME" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[MCH_TYPE]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[MCH_TYPE]"
+                          name="MCH_TYPE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[SUP_MCH_CODE]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[SUP_MCH_CODE]"
+                          name="SUP_MCH_CODE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[MANUFACTURER_NO]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[MANUFACTURER_NO]"
+                          name="MANUFACTURER_NO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[SERIAL_NO]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[SERIAL_NO]"
+                          name="SERIAL_NO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[SUP_CONTRACT]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[SUP_CONTRACT]"
+                          name="SUP_CONTRACT" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[LOCATION_ID]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[LOCATION_ID]"
+                          name="LOCATION_ID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJ_LEVEL]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJ_LEVEL]"
+                          name="OBJ_LEVEL" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[COMPANY]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[COMPANY]"
+                          name="COMPANY" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OPERATIONAL_STATUS]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OPERATIONAL_STATUS]"
+                          name="OPERATIONAL_STATUS" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          name="OBJKEY" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJTYPE]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJTYPE]"
+                          name="OBJTYPE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          name="OBJVERSION" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJID]"
+                          name="OBJID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_ASSET_DESIGNATION]"
+                          dataType="wstr"
+                          length="200"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_ASSET_DESIGNATION]"
+                          name="CF$_ASSET_DESIGNATION" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_KW]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_KW]"
+                          name="CF$_KW" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_MODEL_NO]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_MODEL_NO]"
+                          name="CF$_MODEL_NO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_OBJ_CLASS]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_OBJ_CLASS]"
+                          name="CF$_OBJ_CLASS" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_OWNER]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_OWNER]"
+                          name="CF$_OWNER" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_OWNERSHIP]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_OWNERSHIP]"
+                          name="CF$_OWNERSHIP" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_PROJECT_NO]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_PROJECT_NO]"
+                          name="CF$_PROJECT_NO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_PWS_EQUIPMENT_STATUS]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_PWS_EQUIPMENT_STATUS]"
+                          name="CF$_PWS_EQUIPMENT_STATUS" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_REGION]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CF$_REGION]"
+                          name="CF$_REGION" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::TotalRecords</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Generate EquipFunc_cfv Files\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Sequence Container\Generate EquipFunc_cfv Files\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Generate EquipFunc_cfv Files.Paths[OLE DB Source Error Output]"
+                  endId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1.Inputs[Flat File Destination Input]"
+                  name="OLE DB Source Error Output"
+                  startId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output]" />
+                <path
+                  refId="Package\Sequence Container\Generate EquipFunc_cfv Files.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Generate EquipFunc_cfv Files\Row Count.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Sequence Container\Generate EquipFunc_cfv Files.Paths[Row Count Output 1]"
+                  endId="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Sequence Container\Generate EquipFunc_cfv Files\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Package Completed"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{388640B2-C2D2-48C3-A6DE-F1A201832A73}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Package Completed"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [dbo].[az_upload_audit_log_tbl]
+SELECT '"+ @[System::PackageName] +"','Package Completed','SQL to Azure Landing', SUBSTRING('"+ @[User::Targetfilename] +"', 38, 35), '"+ @[User::EquipFunc_Cfv] +"', "+(DT_WSTR,12) @[User::TotalRecords] +", getdate(), ''"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[az_upload_audit_log_tbl]&#xA;SELECT 'IFSEquipFunc_Cfv','Package Completed','SQL to Azure Landing', SUBSTRING('\\psfile3\Data Solutions\DW-DEV\SSIS\equipment_functional_cfv_tbl.csv', 38, 35), 'equipment_functional_cfv_tbl', 0, getdate(), ''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F6195CD3-79A2-4A54-9F66-515474F57D89}"
+          DTS:From="Package\Sequence Container\Generate EquipFunc_cfv Files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\File System Task - Change CSV Filename" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{11B66C9F-1317-47F2-AA7F-3A8A0E1EF3FF}"
+          DTS:From="Package\Sequence Container\File System Task - Change CSV Filename"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Azure Blob Upload CSV" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{23CBB0FB-DCBC-440B-8F4F-D83E0E348C2D}"
+          DTS:From="Package\Sequence Container\Azure Blob Upload CSV"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\Package Completed" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B575E48E-0B7A-420B-B4F9-3EA7FB1C68AD}"
+      DTS:From="Package\Package Started"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Sequence Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Package Started"
+          TopLeft="468,38" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Sequence Container\Azure Blob Upload CSV"
+          TopLeft="42,172" />
+        <NodeLayout
+          Size="285,42"
+          Id="Package\Sequence Container\File System Task - Change CSV Filename"
+          TopLeft="3.5,99" />
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Sequence Container\Generate EquipFunc_cfv Files"
+          TopLeft="33,16" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Sequence Container\Package Completed"
+          TopLeft="49,286" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="146.25,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="143,141">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="139,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="296,710"
+          Size="296,753"
+          Id="Package\Sequence Container"
+          TopLeft="439,136" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="548,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39,56"
+              Start="0,0"
+              End="39,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="35,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35,28"
+                    Point2="39,28"
+                    Point3="39,32" />
+                  <mssgle:LineSegment
+                    End="39,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Generate EquipFunc_cfv Files">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records"
+          TopLeft="583,269" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Sequence Container\Generate EquipFunc_cfv Files\Row Count"
+          TopLeft="382,347" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination 1"
+          TopLeft="878,361" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Sequence Container\Generate EquipFunc_cfv Files\Flat File Destination"
+          TopLeft="559,433" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Generate EquipFunc_cfv Files.Paths[Row Count Output 1]"
+          TopLeft="448.5,389">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="198.5,44"
+              Start="0,0"
+              End="198.5,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="194.5,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="194.5,22"
+                    Point2="198.5,22"
+                    Point3="198.5,26" />
+                  <mssgle:LineSegment
+                    End="198.5,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Generate EquipFunc_cfv Files.Paths[OLE DB Source Output]"
+          TopLeft="649.333333333333,311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-200.833333333333,36"
+              Start="0,0"
+              End="-200.833333333333,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5757884028484" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5757884028484"
+                    Point2="0,14.5757884028484"
+                    Point3="-4,14.5757884028484" />
+                  <mssgle:LineSegment
+                    End="-196.833333333333,14.5757884028484" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-196.833333333333,14.5757884028484"
+                    Point2="-200.833333333333,14.5757884028484"
+                    Point3="-200.833333333333,18.5757884028484" />
+                  <mssgle:LineSegment
+                    End="-200.833333333333,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Generate EquipFunc_cfv Files.Paths[OLE DB Source Error Output]"
+          TopLeft="711.666666666667,311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="258.833333333333,50"
+              Start="0,0"
+              End="258.833333333333,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.2441505595117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.2441505595117"
+                    Point2="0,20.2441505595117"
+                    Point3="4,20.2441505595117" />
+                  <mssgle:LineSegment
+                    End="254.833333333333,20.2441505595117" />
+                  <mssgle:CubicBezierSegment
+                    Point1="254.833333333333,20.2441505595117"
+                    Point2="258.833333333333,20.2441505595117"
+                    Point3="258.833333333333,24.2441505595117" />
+                  <mssgle:LineSegment
+                    End="258.833333333333,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="65.9827604166665,25.2441505595117,126.8678125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Generate EquipFunc_cfv Files\OLE_SRC Get Records">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

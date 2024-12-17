@@ -1,0 +1,733 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/14/2024 4:50:43 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VSHWAITHAKA01"
+  DTS:CreatorName="ps\haniel.waithaka"
+  DTS:DTSID="{B5FE1DF3-522F-4563-B659-10E4BD92FB5B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="MasterLoadIFS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{EC67F910-51BC-4C39-9CE2-2984A1A13572}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Load IFS Email Connection Manager]"
+      DTS:CreationName="SMTP"
+      DTS:Description="Email Notifications for SSIS package completion"
+      DTS:DTSID="{FF6D7914-9B6C-4B8E-B63C-B9C480C77341}"
+      DTS:ObjectName="Load IFS Email Connection Manager">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=10.10.9.253;UseWindowsAuthentication=False;EnableSsl=False;"
+          ConnectByProxy="False" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{727E7372-91C8-4D24-9C4D-0667DB10DF7F}"
+      DTS:ObjectName="NCDIASQ002DV.PSDW_IFS_DV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=NCDIASQ002DV;Initial Catalog=PSDW_IFS_DV;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-MasterLoadIFS-{727E7372-91C8-4D24-9C4D-0667DB10DF7F}NCDIASQ002DV.PSDW_IFS_DV;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C1E9E6E5-6997-4621-94DA-DC16344AD134}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="DATEADD(&quot;day&quot;,0,GETDATE())"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentDate">
+      <DTS:VariableValue
+        DTS:DataType="7">12/2/2024 2:50:23 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{96A32A5A-6382-4CE4-9CF1-34EF13EA4869}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;Data has been successfully loaded from IFS_DEV_Apps10 into SQL Server PSDW_IFS_DV&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EmailMsg">
+      <DTS:VariableValue
+        DTS:DataType="8">Data has been successfully loaded from IFS_DEV_Apps10 into SQL Server PSDW_IFS_DV</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F2D86FC-7380-4E54-B99D-71C05AB0E1A7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;Data has failed to be loaded from IFS_DEV_Apps10 into SQL Server PSDW_IFS_DV&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ErroEmailMsg">
+      <DTS:VariableValue
+        DTS:DataType="8">Data has failed to be loaded from IFS_DEV_Apps10 into SQL Server PSDW_IFS_DV</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create Log Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{60e0cc46-336c-4394-8f32-1c35cba318aa}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Log Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{727E7372-91C8-4D24-9C4D-0667DB10DF7F}"
+          SQLTask:SqlStatementSource="IF  NOT EXISTS (SELECT * FROM sys.objects &#xA;WHERE object_id = OBJECT_ID(N'[dbo].[az_upload_audit_log_tbl]') AND type in (N'U'))&#xA;CREATE TABLE [dbo].[az_upload_audit_log_tbl](&#xA;[Id] [int] IDENTITY(1,1) NOT NULL,&#xA;&#x9;[PACKAGE_NAME] [nvarchar](200) NULL,&#xA;&#x9;[STATUS] [nvarchar](100) NULL,&#xA;&#x9;[DATAFLOW] [nvarchar](200) NULL,&#xA;&#x9;[FILE_NAME] [nvarchar](400) NULL,&#xA;&#x9;[TABLE_NAME] [nvarchar](200) NULL,&#xA;&#x9;[RECORD_COUNT] [int] NOT NULL,&#xA;&#x9;[UPLOAD_DATE] [datetime] NULL,&#xA;&#x9;[ERROR_MESSAGE] [nvarchar](max) NULL&#xA;) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Task"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{6F92F719-EF88-4CBD-B231-BEE7C8DDCDE9}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Task"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Send Mail Task.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{81D5E681-3B7F-4897-9C40-49B4EAFAA2DE}"
+          DTS:EventID="6291552"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{AD7E843E-F471-45DF-9547-5A45289905CD}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Send Mail Task.EventHandlers[OnError]\Send Mail Task"
+              DTS:CreationName="Microsoft.SendMailTask"
+              DTS:Description="Send Mail Task"
+              DTS:DTSID="{29c3c240-e8ae-49c8-925f-c934c390f123}"
+              DTS:ExecutableType="Microsoft.SendMailTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Send Mail Task"
+              DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SendMailTask:SendMailTaskData
+                  SendMailTask:SMTPServer="{FF6D7914-9B6C-4B8E-B63C-B9C480C77341}"
+                  SendMailTask:From="jrubier@powersecure.com"
+                  SendMailTask:To="haniel.waithaka@powersecure.com"
+                  SendMailTask:Subject="Errorr Processing IFS To SQL DB Data Load"
+                  SendMailTask:MessageSourceType="Variable"
+                  SendMailTask:MessageSource="User::ErroEmailMsg" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{FF6D7914-9B6C-4B8E-B63C-B9C480C77341}"
+          SendMailTask:From="psds@powersecure.com"
+          SendMailTask:To="dgardner@powersecure.com"
+          SendMailTask:CC="haniel.waithaka@powersecure.com"
+          SendMailTask:Subject="IFS To SQL DV"
+          SendMailTask:MessageSourceType="Variable"
+          SendMailTask:MessageSource="User::EmailMsg" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{6DBBF691-0FCF-42F2-A32C-B736E73D0FC7}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Load Company Person"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{66D7CB63-580C-4BED-BB88-138F42FAB1C5}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Company Person"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadCompanyPerson.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Load Customer Information"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{1ebd1806-0f0d-4ed6-99a0-a9d19d5fde70}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Customer Information"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadCustomerInfo.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Load Equipment Flnctional"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{0e1f4b1a-4961-4689-b5a3-b628b9ff03c0}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Equipment Flnctional"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadEquipFunc.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Load Equipment Functional CFV"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{7b26d778-089d-42ab-b59e-879317b32550}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Equipment Functional CFV"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadEquipFunc_Cfv.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Load Location Party Address"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{975fc642-16b2-464f-aa9c-f59c9845eb33}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Location Party Address"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadLocPartyAddr.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Load Project CFV"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{C626F908-6A3F-4A38-AF47-A775B6045CDC}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Project CFV"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadProject_CFV.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Load Service Contract"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{07575EA2-412A-44A9-AAF8-F2B4EF6DB4D4}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Service Contract"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadServiceContract_CFV.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{92FF9F91-CB37-48DA-B2D5-E84705C2BBB8}"
+          DTS:From="Package\Sequence Container\Load Company Person"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Load Customer Information" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{C322D167-B29C-410B-BDD2-42FCC2301F98}"
+          DTS:From="Package\Sequence Container\Load Customer Information"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Load Equipment Flnctional" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{290E3364-5089-4D3B-B1DB-ADF99AD363BB}"
+          DTS:From="Package\Sequence Container\Load Equipment Flnctional"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\Load Equipment Functional CFV" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{3182AAD1-F0D1-4003-9B86-835800E401BC}"
+          DTS:From="Package\Sequence Container\Load Equipment Functional CFV"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Sequence Container\Load Location Party Address" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{3847D4C0-E33F-40F7-8C5E-0F6B1ED450A5}"
+          DTS:From="Package\Sequence Container\Load Location Party Address"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Sequence Container\Load Project CFV" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{2F412116-4524-46F3-9CF3-E653601488DE}"
+          DTS:From="Package\Sequence Container\Load Project CFV"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Sequence Container\Load Service Contract" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AC1991BA-3E7B-46D2-A086-5792733D7770}"
+      DTS:From="Package\Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Send Mail Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{5168EBE7-4402-4B44-A185-0A88AED53899}"
+      DTS:From="Package\Create Log Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Sequence Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{47F383D8-D7C6-4CC4-AD3F-948A3517C1FC}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{F5725CCF-A76D-434E-AA9C-F1893A70373F}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Send Mail Task"
+          DTS:CreationName="Microsoft.SendMailTask"
+          DTS:Description="Send Mail Task"
+          DTS:DTSID="{36F2B52F-85EA-4A7E-83D1-C80DF8FF7762}"
+          DTS:ExecutableType="Microsoft.SendMailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Send Mail Task"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{FF6D7914-9B6C-4B8E-B63C-B9C480C77341}"
+              SendMailTask:From="psds@powersecure.com"
+              SendMailTask:To="dgardner@powersecure.com"
+              SendMailTask:CC="haniel.waithaka@powersecure.com"
+              SendMailTask:Subject="Error Processing IFS to SQL Data Load"
+              SendMailTask:MessageSourceType="Variable"
+              SendMailTask:MessageSource="User::ErroEmailMsg" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Create Log Table"
+          TopLeft="496.222222222222,137.777777777778" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Send Mail Task"
+          TopLeft="529,883" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Sequence Container\Load Company Person"
+          TopLeft="118.333333333333,31.8888888888889" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Sequence Container\Load Customer Information"
+          TopLeft="218.777777777778,88.7777777777777" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Sequence Container\Load Equipment Flnctional"
+          TopLeft="21.2222222222222,139.777777777778" />
+        <NodeLayout
+          Size="238,54"
+          Id="Package\Sequence Container\Load Equipment Functional CFV"
+          TopLeft="343.555555555556,172.222222222222" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Sequence Container\Load Location Party Address"
+          TopLeft="30.5555555555555,264.111111111111" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Sequence Container\Load Project CFV"
+          TopLeft="250.777777777778,312.888888888889" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Sequence Container\Load Service Contract"
+          TopLeft="227,406.222222222222" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="309.333333333333,52.8888888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.4444444444445,35.8888888888888"
+              Start="0,0"
+              End="15.4444444444445,28.3888888888888">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="11.4444444444445,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.4444444444445,0"
+                    Point2="15.4444444444445,0"
+                    Point3="15.4444444444445,4" />
+                  <mssgle:LineSegment
+                    End="15.4444444444445,28.3888888888888" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="218.777777777778,109.777777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-93.0555555555557,30"
+              Start="0,0"
+              End="-93.0555555555557,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-89.0555555555557,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-89.0555555555557,0"
+                    Point2="-93.0555555555557,0"
+                    Point3="-93.0555555555557,4" />
+                  <mssgle:LineSegment
+                    End="-93.0555555555557,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="230.222222222222,160.777777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113.333333333333,38.4444444444446"
+              Start="0,0"
+              End="105.833333333333,38.4444444444446">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.6666666666667,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.6666666666667,0"
+                    Point2="56.6666666666667,0"
+                    Point3="56.6666666666667,4" />
+                  <mssgle:LineSegment
+                    End="56.6666666666667,34.4444444444446" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.6666666666667,34.4444444444446"
+                    Point2="56.6666666666667,38.4444444444446"
+                    Point3="60.6666666666667,38.4444444444446" />
+                  <mssgle:LineSegment
+                    End="105.833333333333,38.4444444444446" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="462.555555555556,226.222222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-322,37.8888888888887"
+              Start="0,0"
+              End="-322,30.3888888888887">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.9444444444443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.9444444444443"
+                    Point2="0,18.9444444444443"
+                    Point3="-4,18.9444444444443" />
+                  <mssgle:LineSegment
+                    End="-318,18.9444444444443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-318,18.9444444444443"
+                    Point2="-322,18.9444444444443"
+                    Point3="-322,22.9444444444443" />
+                  <mssgle:LineSegment
+                    End="-322,30.3888888888887" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 4]"
+          TopLeft="250.555555555555,285.111111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79.7222222222223,27.7777777777777"
+              Start="0,0"
+              End="79.7222222222223,20.2777777777777">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="75.7222222222223,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="75.7222222222223,0"
+                    Point2="79.7222222222223,0"
+                    Point3="79.7222222222223,4" />
+                  <mssgle:LineSegment
+                    End="79.7222222222223,20.2777777777777" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 5]"
+          TopLeft="330.277777777778,354.888888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.2777777777777,51.3333333333337"
+              Start="0,0"
+              End="-12.2777777777777,43.8333333333337">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.6666666666668" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.6666666666668"
+                    Point2="0,25.6666666666668"
+                    Point3="-4,25.6666666666668" />
+                  <mssgle:LineSegment
+                    End="-8.27777777777771,25.6666666666668" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.27777777777771,25.6666666666668"
+                    Point2="-12.2777777777777,25.6666666666668"
+                    Point3="-12.2777777777777,29.6666666666668" />
+                  <mssgle:LineSegment
+                    End="-12.2777777777777,43.8333333333337" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="656,578"
+          Size="656,621"
+          Id="Package\Sequence Container"
+          TopLeft="273.444444444445,202.666666666667" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="602.722222222223,823.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.333333333333"
+              Start="0,0"
+              End="0,51.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="578.222222222222,179.777777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.2222222222224,22.8888888888887"
+              Start="0,0"
+              End="23.2222222222224,15.3888888888887">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.44444444444437" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.44444444444437"
+                    Point2="0,11.4444444444444"
+                    Point3="4,11.4444444444444" />
+                  <mssgle:LineSegment
+                    End="19.2222222222224,11.4444444444444" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.2222222222224,11.4444444444444"
+                    Point2="23.2222222222224,11.4444444444444"
+                    Point3="23.2222222222224,15.4444444444444" />
+                  <mssgle:LineSegment
+                    End="23.2222222222224,15.3888888888887" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package.EventHandlers[OnError]\Send Mail Task"
+          TopLeft="577,102" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Send Mail Task.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Send Mail Task.EventHandlers[OnError]\Send Mail Task"
+          TopLeft="526,61" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

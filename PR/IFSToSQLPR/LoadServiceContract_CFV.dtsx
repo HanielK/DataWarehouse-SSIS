@@ -1,0 +1,1410 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/6/2024 9:57:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VSHWAITHAKA01"
+  DTS:CreatorName="ps\haniel.waithaka"
+  DTS:DTSID="{E611F9B8-7ABB-43CC-BDF8-FD9C0B96C1E7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LoadServiceContract_CFV"
+  DTS:PackageType="5"
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{C6A55530-8CF8-46D2-9944-7215A217B8EC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_PR]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AEA3664F-02A5-44F3-9891-C5FBABA5A60B}"
+      DTS:ObjectName="NCDIASQ002DV.PSDW_IFS_PR">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=NCDIASQ001;Initial Catalog=PSDW_IFS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-HistLoadEquipFunc-{AEA3664F-02A5-44F3-9891-C5FBABA5A60B}NCDIASQ002DV.PSDW_IFS_DV;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{37585AA1-96C4-46B8-9473-B063A936DAA7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT *FROM OPENQUERY(IFS_PRD_APP10, '&#xA;    SELECT &#x9;CONTRACT_ID&#xA;      ,CONTRACT_NAME&#xA;      ,FROM_DATE&#xA;       ,EXPIRY_DATE&#xA;      ,CREATED&#xA;      ,NOTES&#xA;      ,START_DATE&#xA;      ,END_DATE&#xA;      ,INTERVAL&#xA;      ,UNIT_LENGTH&#xA;      ,FIRST_REVALUATION_DATE&#xA;      ,CONTRACT&#xA;      ,COMPANY&#xA;      ,CUSTOMER_ID&#xA;      ,CONTRACT_TYPE&#xA;      ,STATE&#xA;      ,OBJKEY&#xA;       ,OBJVERSION&#xA;      ,OBJID&#xA;&#xA;    FROM POWE1APP.SC_SERVICE_CONTRACT_CFV&#xA;&#xA;');&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IFSView_ServiceContract_Select">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT *FROM OPENQUERY(IFS_PRD_APP10, '
+    SELECT 	CONTRACT_ID
+      ,CONTRACT_NAME
+      ,FROM_DATE
+       ,EXPIRY_DATE
+      ,CREATED
+      ,NOTES
+      ,START_DATE
+      ,END_DATE
+      ,INTERVAL
+      ,UNIT_LENGTH
+      ,FIRST_REVALUATION_DATE
+      ,CONTRACT
+      ,COMPANY
+      ,CUSTOMER_ID
+      ,CONTRACT_TYPE
+      ,STATE
+      ,OBJKEY
+       ,OBJVERSION
+      ,OBJID
+
+    FROM POWE1APP.SC_SERVICE_CONTRACT_CFV
+
+');</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{479A8D35-D1E0-4D01-AEA9-B3A2C060D8F1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MaxLastUpdated_ServiceContract">
+      <DTS:VariableValue
+        DTS:DataType="7">11/6/2024 12:58:06 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{83ECE660-539A-46E4-B433-AF788D33DE10}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ServiceContract">
+      <DTS:VariableValue
+        DTS:DataType="8">service_contract_cfv_tbl</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6DC2DB45-F1D6-4F9D-BB8A-492B5D3EF619}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Targetfilename">
+      <DTS:VariableValue
+        DTS:DataType="8">N/A</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{35BE4964-5D52-44A3-A9A5-25391E503617}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TotalRecords">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{703D5E5E-F263-4F7E-8D78-69C4FC860DE5}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;USE [PSDW_IFS]&#xA;GO&#xA;&#xA;SET ANSI_NULLS ON&#xA;GO&#xA;&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;TRUNCATE TABLE [dbo].[sc_service_contract_tbl];&#xA;GO&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TruncateServiceContract">
+      <DTS:VariableValue
+        DTS:DataType="8">USE [PSDW_IFS]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+TRUNCATE TABLE [dbo].[sc_service_contract_tbl];
+GO</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Service Contract Data"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{096D3C9B-F169-4881-A848-1186DBB2DD89}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Service Contract Data">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Load Service Contract Data\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{8D99401F-E64A-483D-B9E3-904DDEFCFFF8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Load Service Contract Data\Data Flow Task\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[OBJID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="18"
+                          cachedName="OBJID"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[OBJID(DT_STR)]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="18"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[OBJID(DT_STR)]"
+                          name="OBJID(DT_STR)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[sc_service_contract_tbl]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_PR]"
+                      connectionManagerRefId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_PR]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OBJVERSION]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="OBJVERSION"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJVERSION]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJVERSION]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OBJKEY]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OBJKEY"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJKEY]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJKEY]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CONTRACT]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="CONTRACT"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONTRACT]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONTRACT]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[COMPANY]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="COMPANY"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COMPANY]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COMPANY]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OBJID(DT_STR)]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="18"
+                          cachedName="OBJID(DT_STR)"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJID]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[OBJID(DT_STR)]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CONTRACT_NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="CONTRACT_NAME"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONTRACT_NAME]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONTRACT_NAME]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FROM_DATE]"
+                          cachedDataType="wstr"
+                          cachedLength="27"
+                          cachedName="FROM_DATE"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FROM_DATE]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FROM_DATE]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EXPIRY_DATE]"
+                          cachedDataType="wstr"
+                          cachedLength="27"
+                          cachedName="EXPIRY_DATE"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EXPIRY_DATE]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[EXPIRY_DATE]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CREATED]"
+                          cachedDataType="wstr"
+                          cachedLength="27"
+                          cachedName="CREATED"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CREATED]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CONTRACT_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="CONTRACT_ID"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONTRACT_ID]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONTRACT_ID]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NOTES]"
+                          cachedDataType="wstr"
+                          cachedLength="2000"
+                          cachedName="NOTES"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOTES]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOTES]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[START_DATE]"
+                          cachedDataType="wstr"
+                          cachedLength="27"
+                          cachedName="START_DATE"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[START_DATE]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[START_DATE]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[END_DATE]"
+                          cachedDataType="wstr"
+                          cachedLength="27"
+                          cachedName="END_DATE"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[END_DATE]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[END_DATE]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INTERVAL]"
+                          cachedDataType="r8"
+                          cachedName="INTERVAL"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INTERVAL]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INTERVAL]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UNIT_LENGTH]"
+                          cachedDataType="r8"
+                          cachedName="UNIT_LENGTH"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UNIT_LENGTH]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UNIT_LENGTH]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FIRST_REVALUATION_DATE]"
+                          cachedDataType="wstr"
+                          cachedLength="27"
+                          cachedName="FIRST_REVALUATION_DATE"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FIRST_REVALUATION_DATE]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FIRST_REVALUATION_DATE]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CUSTOMER_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="CUSTOMER_ID"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CONTRACT_TYPE]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="CONTRACT_TYPE"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONTRACT_TYPE]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONTRACT_TYPE]" />
+                        <inputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[STATE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="STATE"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[STATE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="OBJID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONTRACT]"
+                          dataType="wstr"
+                          length="5"
+                          name="CONTRACT" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COMPANY]"
+                          dataType="wstr"
+                          length="20"
+                          name="COMPANY" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONTRACT_ID]"
+                          dataType="wstr"
+                          length="15"
+                          name="CONTRACT_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONTRACT_NAME]"
+                          dataType="wstr"
+                          length="40"
+                          name="CONTRACT_NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FROM_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          name="FROM_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EXPIRY_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          name="EXPIRY_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CREATED]"
+                          dataType="wstr"
+                          length="27"
+                          name="CREATED" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NOTES]"
+                          dataType="wstr"
+                          length="2000"
+                          name="NOTES" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[START_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          name="START_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[END_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          name="END_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INTERVAL]"
+                          dataType="r8"
+                          name="INTERVAL" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UNIT_LENGTH]"
+                          dataType="r8"
+                          name="UNIT_LENGTH" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FIRST_REVALUATION_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          name="FIRST_REVALUATION_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="CUSTOMER_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONTRACT_TYPE]"
+                          dataType="wstr"
+                          length="200"
+                          name="CONTRACT_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="STATE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::IFSView_ServiceContract_Select</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_PR]"
+                      connectionManagerRefId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_PR]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJID]"
+                          length="18"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJID]"
+                          name="OBJID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          length="40"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          name="OBJVERSION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          length="50"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          name="OBJKEY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONTRACT]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CONTRACT]"
+                          length="5"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONTRACT]"
+                          name="CONTRACT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COMPANY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COMPANY]"
+                          length="4000"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COMPANY]"
+                          name="COMPANY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONTRACT_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CONTRACT_ID]"
+                          length="15"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONTRACT_ID]"
+                          name="CONTRACT_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONTRACT_NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CONTRACT_NAME]"
+                          length="40"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONTRACT_NAME]"
+                          name="CONTRACT_NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FROM_DATE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FROM_DATE]"
+                          length="27"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FROM_DATE]"
+                          name="FROM_DATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[EXPIRY_DATE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EXPIRY_DATE]"
+                          length="27"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[EXPIRY_DATE]"
+                          name="EXPIRY_DATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATED]"
+                          length="27"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CREATED]"
+                          name="CREATED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOTES]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOTES]"
+                          length="2000"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NOTES]"
+                          name="NOTES"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[START_DATE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[START_DATE]"
+                          length="27"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[START_DATE]"
+                          name="START_DATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[END_DATE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[END_DATE]"
+                          length="27"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[END_DATE]"
+                          name="END_DATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INTERVAL]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INTERVAL]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[INTERVAL]"
+                          name="INTERVAL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UNIT_LENGTH]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UNIT_LENGTH]"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UNIT_LENGTH]"
+                          name="UNIT_LENGTH"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FIRST_REVALUATION_DATE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FIRST_REVALUATION_DATE]"
+                          length="27"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FIRST_REVALUATION_DATE]"
+                          name="FIRST_REVALUATION_DATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_ID]"
+                          length="20"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]"
+                          name="CUSTOMER_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONTRACT_TYPE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CONTRACT_TYPE]"
+                          length="200"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CONTRACT_TYPE]"
+                          name="CONTRACT_TYPE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[STATE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[STATE]"
+                          length="4000"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[STATE]"
+                          name="STATE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="OBJID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CONTRACT]"
+                          dataType="wstr"
+                          length="5"
+                          name="CONTRACT" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COMPANY]"
+                          dataType="wstr"
+                          length="20"
+                          name="COMPANY" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CONTRACT_ID]"
+                          dataType="wstr"
+                          length="15"
+                          name="CONTRACT_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CONTRACT_NAME]"
+                          dataType="wstr"
+                          length="40"
+                          name="CONTRACT_NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FROM_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          name="FROM_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EXPIRY_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          name="EXPIRY_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CREATED]"
+                          dataType="wstr"
+                          length="27"
+                          name="CREATED" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NOTES]"
+                          dataType="wstr"
+                          length="2000"
+                          name="NOTES" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[START_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          name="START_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[END_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          name="END_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[INTERVAL]"
+                          dataType="r8"
+                          name="INTERVAL" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UNIT_LENGTH]"
+                          dataType="r8"
+                          name="UNIT_LENGTH" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FIRST_REVALUATION_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          name="FIRST_REVALUATION_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="CUSTOMER_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CONTRACT_TYPE]"
+                          dataType="wstr"
+                          length="200"
+                          name="CONTRACT_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[STATE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="STATE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CONTRACT_ID]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CONTRACT_ID]"
+                          name="CONTRACT_ID" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CONTRACT_NAME]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CONTRACT_NAME]"
+                          name="CONTRACT_NAME" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FROM_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FROM_DATE]"
+                          name="FROM_DATE" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EXPIRY_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EXPIRY_DATE]"
+                          name="EXPIRY_DATE" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATED]"
+                          dataType="wstr"
+                          length="27"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CREATED]"
+                          name="CREATED" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOTES]"
+                          dataType="wstr"
+                          length="2000"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NOTES]"
+                          name="NOTES" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[START_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[START_DATE]"
+                          name="START_DATE" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[END_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[END_DATE]"
+                          name="END_DATE" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INTERVAL]"
+                          dataType="r8"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[INTERVAL]"
+                          name="INTERVAL" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UNIT_LENGTH]"
+                          dataType="r8"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UNIT_LENGTH]"
+                          name="UNIT_LENGTH" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FIRST_REVALUATION_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FIRST_REVALUATION_DATE]"
+                          name="FIRST_REVALUATION_DATE" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CONTRACT]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CONTRACT]"
+                          name="CONTRACT" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COMPANY]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COMPANY]"
+                          name="COMPANY" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_ID]"
+                          name="CUSTOMER_ID" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CONTRACT_TYPE]"
+                          dataType="wstr"
+                          length="200"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CONTRACT_TYPE]"
+                          name="CONTRACT_TYPE" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[STATE]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[STATE]"
+                          name="STATE" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJID]"
+                          name="OBJID" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          name="OBJVERSION" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          name="OBJKEY" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load Service Contract Data\Data Flow Task\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::TotalRecords</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Load Service Contract Data\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Service Contract Data\Data Flow Task\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Load Service Contract Data\Data Flow Task\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Load Service Contract Data\Data Flow Task.Paths[Data Conversion Output]"
+                  endId="Package\Load Service Contract Data\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
+                  name="Data Conversion Output"
+                  startId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Load Service Contract Data\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\Load Service Contract Data\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Load Service Contract Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Load Service Contract Data\Data Flow Task.Paths[Row Count Output 1]"
+                  endId="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Load Service Contract Data\Data Flow Task\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Service Contract Data\Package Completed"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C4DABAB6-BB57-4019-8773-1C90133A87C1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Package Completed"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [PSDW_IFS].[dbo].[az_upload_audit_log_tbl]
+SELECT '"+ @[System::PackageName] +"','Package Completed','IFS to SQL DB', '"+ @[User::Targetfilename] +"', '"+ @[User::ServiceContract] +"', "+(DT_WSTR,12) @[User::TotalRecords] +", getdate(), ''"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AEA3664F-02A5-44F3-9891-C5FBABA5A60B}"
+              SQLTask:SqlStatementSource="INSERT INTO [PSDW_IFS].[dbo].[az_upload_audit_log_tbl]&#xA;SELECT 'LoadServiceContract_CFV','Package Completed','IFS to SQL DB', 'N/A', 'service_contract_cfv_tbl', 0, getdate(), ''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Service Contract Data\Truncate Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{515C5871-393F-4054-AF28-785934250FF7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AEA3664F-02A5-44F3-9891-C5FBABA5A60B}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::TruncateServiceContract" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Service Contract Data.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{30D38BB7-A652-489F-A294-DCA5C7F7B517}"
+          DTS:From="Package\Load Service Contract Data\Data Flow Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Load Service Contract Data\Package Completed" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Service Contract Data.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{782343DA-D3F7-4D2D-97DA-949B7983AF4E}"
+          DTS:From="Package\Load Service Contract Data\Truncate Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Load Service Contract Data\Data Flow Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Package Started"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{292E8617-61EE-4F24-829B-DEF035A2425E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Package Started"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"INSERT INTO [PSDW_IFS].[dbo].[az_upload_audit_log_tbl]
+SELECT '"+ @[System::PackageName] +"','Package Started', 'IFS to SQL DB', '', '', 0, getdate(), ''
+"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AEA3664F-02A5-44F3-9891-C5FBABA5A60B}"
+          SQLTask:SqlStatementSource="INSERT INTO [PSDW_IFS].[dbo].[az_upload_audit_log_tbl]&#xA;SELECT 'LoadServiceContract_CFV','Package Started', 'IFS to SQL DB', '', '', 0, getdate(), ''&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9EF6236C-E57E-49ED-973E-E6504D7EAA56}"
+      DTS:From="Package\Package Started"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load Service Contract Data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Load Service Contract Data\Data Flow Task"
+          TopLeft="24,88.5" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Load Service Contract Data\Package Completed"
+          TopLeft="8,162" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load Service Contract Data\Truncate Table"
+          TopLeft="26,15" />
+        <EdgeLayout
+          Id="Package\Load Service Contract Data.PrecedenceConstraints[Constraint]"
+          TopLeft="99.25,130.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.5"
+              Start="0,0"
+              End="0,24">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Service Contract Data.PrecedenceConstraints[Constraint 1]"
+          TopLeft="101.25,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.5"
+              Start="0,0"
+              End="0,24">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="240,259"
+          Size="240,302"
+          Id="Package\Load Service Contract Data"
+          TopLeft="434,119" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Package Started"
+          TopLeft="470,36" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="550.75,78">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Service Contract Data\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Load Service Contract Data\Data Flow Task\Row Count"
+          TopLeft="241,204" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination"
+          TopLeft="474,203" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Load Service Contract Data\Data Flow Task\OLE DB Source"
+          TopLeft="474,18" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Load Service Contract Data\Data Flow Task\Data Conversion"
+          TopLeft="221,101" />
+        <EdgeLayout
+          Id="Package\Load Service Contract Data\Data Flow Task.Paths[Row Count Output 1]"
+          TopLeft="374,224.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="100,0"
+              Start="0,0"
+              End="92.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="92.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Service Contract Data\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="552.5,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-251,41"
+              Start="0,0"
+              End="-251,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-247,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-247,20.5"
+                    Point2="-251,20.5"
+                    Point3="-251,24.5" />
+                  <mssgle:LineSegment
+                    End="-251,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Service Contract Data\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="304.5,143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Service Contract Data\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Service Contract Data\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

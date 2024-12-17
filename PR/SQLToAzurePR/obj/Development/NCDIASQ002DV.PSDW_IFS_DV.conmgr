@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="NCDIASQ002DV.PSDW_IFS_DV"
+  DTS:DTSID="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=NCDIASQ002DV;Initial Catalog=PSDW_IFS_DV;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-IFSUploadTest-{BC5B107E-2583-43B6-9107-5F7747E77497}NCDIASQ002DV.PSDW_IFS_DV;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

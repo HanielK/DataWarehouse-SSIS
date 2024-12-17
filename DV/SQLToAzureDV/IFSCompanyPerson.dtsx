@@ -1,0 +1,2052 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/5/2024 2:27:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VSHWAITHAKA01"
+  DTS:CreatorName="ps\haniel.waithaka"
+  DTS:DTSID="{F1B1DE16-7C07-4AFC-9FC1-F1D1724B6A5A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="IFSCompanyPerson"
+  DTS:PackageType="5"
+  DTS:VersionBuild="231"
+  DTS:VersionGUID="{42CE4F5D-2D17-47E4-B213-F6D0D8D24E05}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CompanyPerson_Flat File Connection Manager_csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{ED744083-A1D6-4589-B41E-71C7D4341FC3}"
+      DTS:ObjectName="CompanyPerson_Flat File Connection Manager_csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="\\psfile3\Data Solutions\DW-DEV\SSIS\company_person.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJKEY"
+              DTS:DTSID="{74B9CA14-D8CB-4EBB-9475-8EDB7AF5F8AB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJVERSION"
+              DTS:DTSID="{0E07777C-9455-4603-926C-A639786C313B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJID"
+              DTS:DTSID="{D412D7C5-351E-48C0-9502-8DC30F7E8FBB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COMPANY_ID"
+              DTS:DTSID="{95150BA8-E3AE-47BD-A818-1E0C1D4C7FFF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="11"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMP_NO"
+              DTS:DTSID="{16801038-DC38-457E-A9D1-5D7FFDA93F77}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PERSON_ID"
+              DTS:DTSID="{11C0C818-A822-41ED-8DE9-6C1ED1F5D7A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FNAME"
+              DTS:DTSID="{E452B0FF-9483-4444-9CEE-0A0557E3FDE8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LNAME"
+              DTS:DTSID="{B2D3CF0C-0C74-4BCB-9144-4ADB51F021B3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INTERNAL_DISPLAY_NAME"
+              DTS:DTSID="{E2FD902A-A0BE-4997-8E47-0D3C19E50962}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMPLOYEE_STATUS"
+              DTS:DTSID="{677D1AA0-07A9-4E52-93A7-D14A411CCA38}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMPLOYMENT_TYPE"
+              DTS:DTSID="{EB0BAE52-649D-41F3-A290-6602CDF61398}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMPLOYEE_STATUS_SEQ_NO"
+              DTS:DTSID="{BC5A661F-E00B-4006-9BF8-10505C4797E8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORG_CODE"
+              DTS:DTSID="{73455C90-21A6-40E5-BEBB-4ABCF8D522CE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="POS_CODE"
+              DTS:DTSID="{0F5A671A-D512-40FB-BD83-893D3E28B3FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="304"
+              DTS:DataScale="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMPLOYMENT_START_DATE"
+              DTS:DTSID="{CC12B0E0-6BF7-4BDD-90B8-C1DC7A4A2BEA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="304"
+              DTS:DataScale="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMPLOYMENT_END_DATE"
+              DTS:DTSID="{1DC78169-86FA-4448-B85A-248A673A0289}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FNAME(DT_WSTR)"
+              DTS:DTSID="{7DCF0107-19EE-4FE7-99B0-21A6DD013784}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Error Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Redirtect  Error rows to file"
+      DTS:DTSID="{80B97CDF-DA0A-45BB-A238-DBFDD724B9ED}"
+      DTS:ObjectName="Flat File Error Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\psfile3\Data Solutions\DW-DEV\Error Records\CompanyPerson_errors.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COMPANY_ID"
+              DTS:DTSID="{39F84886-F1BD-4AC7-A07C-6B121A135621}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="11"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMP_NO"
+              DTS:DTSID="{ED35E842-76AB-4D23-BC18-AF016186CBE9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PERSON_ID"
+              DTS:DTSID="{F81F243D-9158-435D-8ACA-66C9F2B4BE0F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FNAME"
+              DTS:DTSID="{9DA350D2-A52E-4667-8247-81684D806166}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LNAME"
+              DTS:DTSID="{463BD50D-125A-42EA-9CAE-5FE8B8576316}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="INTERNAL_DISPLAY_NAME"
+              DTS:DTSID="{83686C30-DD7B-4C61-8DBC-CD1F954ADEF4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMPLOYEE_STATUS"
+              DTS:DTSID="{DA71F907-B7BD-451B-AB72-EAF75C0B974D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMPLOYMENT_TYPE"
+              DTS:DTSID="{09F2CDEB-1D35-4CC5-8945-B078219B4F94}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMPLOYEE_STATUS_SEQ_NO"
+              DTS:DTSID="{3C5D7714-D8F9-46E9-81DC-99C4FBBBAB87}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ORG_CODE"
+              DTS:DTSID="{0BE733BD-5FA9-48B8-AD60-ACAE48CB9BBA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="POS_CODE"
+              DTS:DTSID="{44765109-90AC-4C30-AE8E-EBD38469D0C0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="27"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMPLOYMENT_START_DATE"
+              DTS:DTSID="{65B6AE0F-FCFE-402E-9232-7385CB9020FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="27"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EMPLOYMENT_END_DATE"
+              DTS:DTSID="{5D91D2ED-8324-4B91-924A-E7FCF952F5C6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJKEY"
+              DTS:DTSID="{C24343E7-81FD-4D51-BA76-57A540FD5C92}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJVERSION"
+              DTS:DTSID="{1D35D235-56A6-45C1-A18D-C84C02E047C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJID"
+              DTS:DTSID="{57E8173E-31BC-4F28-9393-8D999D600AD5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{130EE681-D34F-4E76-ADE9-0CB7E2E3C3BA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{E1561FF7-ED49-4C98-B784-B0D604351734}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+      DTS:ObjectName="NCDIASQ002DV.PSDW_IFS_DV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=NCDIASQ002DV;Initial Catalog=PSDW_IFS_DV;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-IFSCompanyPerson-{BC5B107E-2583-43B6-9107-5F7747E77497}NCDIASQ002DV.PSDW_IFS_DV;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSIS Connection Manager for Azure Storage]"
+      DTS:CreationName="AzureStorage"
+      DTS:DTSID="{E48B7F9F-B774-4BC1-A12A-28CADBE431A8}"
+      DTS:ObjectName="SSIS Connection Manager for Azure Storage">
+      <DTS:ObjectData>
+        <AzureStorageConnectionManager
+          ConnectionString="AuthType=ServicePrincipal;ServicePrincipalId=bfd3016f-8155-471d-96ee-ae36a8623576;TenantId=d1f8ad8c-baed-4518-a48c-feade60a79f4;AccountName=psdwdvstordata;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
+          ConnectByProxy="False">
+          <ServicePrincipalKey
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVaXw3HPZkyfY4rcoX3NqwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADYJkZO9fcsNh3BAWB4tquQAAAAAASAAACgAAAAEAAAAM61CUE+5uEUtYLlCNMqpTFYAAAAsgx/D6Ldmp+ufgXY4mGoybmDGP2hpCBdpynD9Zo2L3ZdOhFsx9fSQuRbfszvhR6yv09gzYH1OOdLwdMYr/vxugHL6i1XuxxQ6N10HEWTHbScTbiy3inktxQAAAC+yYaZM+rIS0Xr1BdA+mB0ybleBw</ServicePrincipalKey>
+        </AzureStorageConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B09387AA-9D0F-4382-8C69-5321E7CD7277}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CompanyPerson">
+      <DTS:VariableValue
+        DTS:DataType="8">company_person_tbl</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2CE9DB22-22EF-46BB-BDF0-9E1AED6B374E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filepath">
+      <DTS:VariableValue
+        DTS:DataType="8">landing</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{363DBFE1-2054-4C3B-B015-D3F627B7A851}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sourcefilename">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-DEV\SSIS\company_person.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2676537F-D682-4049-876D-D4720BDC7F74}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT [COMPANY_ID]&#xA;      ,[EMP_NO]&#xA;      ,[PERSON_ID]&#xA;      ,TRIM([FNAME]) AS FNAME&#xA;      ,TRIM([LNAME]) AS LNAME&#xA;      ,[INTERNAL_DISPLAY_NAME]&#xA;      ,[EMPLOYEE_STATUS]&#xA;      ,[EMPLOYMENT_TYPE]&#xA;      ,[EMPLOYEE_STATUS_SEQ_NO]&#xA;      ,[ORG_CODE]&#xA;      ,[POS_CODE]&#xA;      ,[EMPLOYMENT_START_DATE]&#xA;      ,[EMPLOYMENT_END_DATE]&#xA;      ,[OBJID]&#xA;      ,[OBJVERSION]&#xA;      ,[OBJKEY]&#xA;  FROM [PSDW_IFS_DV].[dbo].[company_person_tbl]&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_CompanyPerson_Select">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT [COMPANY_ID]
+      ,[EMP_NO]
+      ,[PERSON_ID]
+      ,TRIM([FNAME]) AS FNAME
+      ,TRIM([LNAME]) AS LNAME
+      ,[INTERNAL_DISPLAY_NAME]
+      ,[EMPLOYEE_STATUS]
+      ,[EMPLOYMENT_TYPE]
+      ,[EMPLOYEE_STATUS_SEQ_NO]
+      ,[ORG_CODE]
+      ,[POS_CODE]
+      ,[EMPLOYMENT_START_DATE]
+      ,[EMPLOYMENT_END_DATE]
+      ,[OBJID]
+      ,[OBJVERSION]
+      ,[OBJKEY]
+  FROM [PSDW_IFS_DV].[dbo].[company_person_tbl]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{74A1FE60-BB77-4C58-8EF7-BFE0F021053B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT COUNT(*) AS cnt FROM [PSDW_IFS_DV].[dbo].[company_person_tbl]&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_Records_Count">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT COUNT(*) AS cnt FROM [PSDW_IFS_DV].[dbo].[company_person_tbl]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C6A4F810-C45B-4240-9608-2511C3B71F4B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="Replace (@[User::Sourcefilename],&quot;.csv&quot;,&quot;&quot;)+&quot;_&quot;  + &quot;tbl&quot; +&quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Targetfilename">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-DEV\SSIS\company_person_tbl.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{62669B0B-FF1E-49EF-8BCB-BE76ED1D7481}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="Replace (@[User::Sourcefilename],&quot;.csv&quot;,&quot;&quot;)+&quot;_&quot; + (DT_WSTR,4)YEAR(GETDATE()) + &quot;_&quot; + (DT_WSTR,4)MONTH(GETDATE()) + &quot;_&quot; + (DT_WSTR,4)DAY(GETDATE()) + &quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Targetfilename_DateTime">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-DEV\SSIS\company_person_2024_12_10.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A4201D2E-E42F-490B-A4EB-7D7EBCBD96A0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TotalRecords">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Package Started"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9D645A1E-FA85-45B3-948E-BD7C4A6E2122}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Package Started"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+          SQLTask:SqlStatementSource="INSERT INTO [PSDW_IFS_DV].[dbo].[az_upload_audit_log_tbl]&#xA;SELECT 'IFSCompanyPerson','Package Started','SQL to Azure Landing', '', '', 0, getdate(), ''&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{87A6616E-3C2A-4B60-B4C5-8BCEEB831BEC}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Azure Blob Upload CSV"
+          DTS:CreationName="CopyToBlobTask"
+          DTS:Description="Azure Blob Upload Task"
+          DTS:DTSID="{FB3669E3-D42E-4BF7-8B40-3D28F3E9D102}"
+          DTS:ExecutableType="CopyToBlobTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Azure Blob Upload CSV"
+          DTS:TaskContact="Azure Blob Upload Task; (C) Microsoft Corporation; All Rights Reserved"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <CopyToBlobTask
+              ConnectionId="{E48B7F9F-B774-4BC1-A12A-28CADBE431A8}"
+              BlobContainer="landing"
+              BlobDirectory="ifs/company_person/"
+              LocalDirectory="\\psfile3\Data Solutions\DW-DEV\SSIS\"
+              FileNameFilter="company_person*csv*"
+              TimeRangeFrom="1/1/1900 12:00:00 AM -05:00"
+              TimeRangeTo="12/31/2200 12:00:00 AM -05:00"
+              SearchRecursively="0" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\File System Task - Change CSV Filename"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{1033EEED-3AEF-4890-9D6B-C7D7BFA6390C}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task - Change CSV Filename"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::Sourcefilename"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::Targetfilename"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Generate CompanyPerson Files"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{438C48C8-53E5-4A15-8CF4-377B6AE348B3}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Generate CompanyPerson Files"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Inputs[Data Conversion Input].Columns[FNAME]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FNAME"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[FNAME]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Outputs[Data Conversion Output].Columns[FNAME(DT_WSTR)]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Outputs[Data Conversion Output].Columns[FNAME(DT_WSTR)]"
+                          name="FNAME(DT_WSTR)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[FNAME]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[CompanyPerson_Flat File Connection Manager_csv]"
+                      connectionManagerRefId="Package.ConnectionManagers[CompanyPerson_Flat File Connection Manager_csv]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJKEY]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OBJKEY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJKEY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJVERSION]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="OBJVERSION"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJVERSION]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJID]"
+                          cachedDataType="wstr"
+                          cachedLength="18"
+                          cachedName="OBJID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[COMPANY_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="COMPANY_ID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[COMPANY_ID]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[COMPANY_ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[EMP_NO]"
+                          cachedDataType="wstr"
+                          cachedLength="11"
+                          cachedName="EMP_NO"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EMP_NO]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMP_NO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[PERSON_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="PERSON_ID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PERSON_ID]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[PERSON_ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[LNAME]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="LNAME"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LNAME]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[LNAME]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[INTERNAL_DISPLAY_NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="1000"
+                          cachedName="INTERNAL_DISPLAY_NAME"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[INTERNAL_DISPLAY_NAME]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[INTERNAL_DISPLAY_NAME]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[EMPLOYEE_STATUS]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="EMPLOYEE_STATUS"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYEE_STATUS]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYEE_STATUS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[EMPLOYMENT_TYPE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="EMPLOYMENT_TYPE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYMENT_TYPE]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_TYPE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[EMPLOYEE_STATUS_SEQ_NO]"
+                          cachedDataType="r8"
+                          cachedName="EMPLOYEE_STATUS_SEQ_NO"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYEE_STATUS_SEQ_NO]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYEE_STATUS_SEQ_NO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[ORG_CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="ORG_CODE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ORG_CODE]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[ORG_CODE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[POS_CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="POS_CODE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[POS_CODE]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[POS_CODE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[EMPLOYMENT_START_DATE]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="EMPLOYMENT_START_DATE"
+                          cachedScale="7"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYMENT_START_DATE]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_START_DATE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[EMPLOYMENT_END_DATE]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="EMPLOYMENT_END_DATE"
+                          cachedScale="7"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYMENT_END_DATE]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_END_DATE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[FNAME(DT_WSTR)]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FNAME(DT_WSTR)"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FNAME]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Outputs[Data Conversion Output].Columns[FNAME(DT_WSTR)]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="40"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          name="OBJID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[COMPANY_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="COMPANY_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EMP_NO]"
+                          dataType="wstr"
+                          length="11"
+                          name="EMP_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PERSON_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="PERSON_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FNAME]"
+                          dataType="wstr"
+                          length="100"
+                          name="FNAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LNAME]"
+                          dataType="wstr"
+                          length="100"
+                          name="LNAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[INTERNAL_DISPLAY_NAME]"
+                          dataType="wstr"
+                          length="1000"
+                          name="INTERNAL_DISPLAY_NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYEE_STATUS]"
+                          dataType="wstr"
+                          length="4000"
+                          name="EMPLOYEE_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYMENT_TYPE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="EMPLOYMENT_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYEE_STATUS_SEQ_NO]"
+                          dataType="r8"
+                          name="EMPLOYEE_STATUS_SEQ_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ORG_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="ORG_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[POS_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="POS_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYMENT_START_DATE]"
+                          dataType="dbTimeStamp2"
+                          name="EMPLOYMENT_START_DATE"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYMENT_END_DATE]"
+                          dataType="dbTimeStamp2"
+                          name="EMPLOYMENT_END_DATE"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FNAME(DT_WSTR)]"
+                          dataType="wstr"
+                          length="100"
+                          name="FNAME(DT_WSTR)" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination 1"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Error Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Error Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[COMPANY_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="COMPANY_ID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[COMPANY_ID]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[COMPANY_ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[EMP_NO]"
+                          cachedDataType="wstr"
+                          cachedLength="11"
+                          cachedName="EMP_NO"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[EMP_NO]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMP_NO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[PERSON_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="PERSON_ID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[PERSON_ID]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[PERSON_ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[FNAME]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="FNAME"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[FNAME]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[FNAME]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[LNAME]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="LNAME"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[LNAME]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[LNAME]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[INTERNAL_DISPLAY_NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="1000"
+                          cachedName="INTERNAL_DISPLAY_NAME"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[INTERNAL_DISPLAY_NAME]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[INTERNAL_DISPLAY_NAME]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[EMPLOYEE_STATUS]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="EMPLOYEE_STATUS"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYEE_STATUS]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYEE_STATUS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[EMPLOYMENT_TYPE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="EMPLOYMENT_TYPE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYMENT_TYPE]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_TYPE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[EMPLOYEE_STATUS_SEQ_NO]"
+                          cachedDataType="r8"
+                          cachedName="EMPLOYEE_STATUS_SEQ_NO"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYEE_STATUS_SEQ_NO]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYEE_STATUS_SEQ_NO]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[ORG_CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="ORG_CODE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ORG_CODE]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ORG_CODE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[POS_CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="POS_CODE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[POS_CODE]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[POS_CODE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[EMPLOYMENT_START_DATE]"
+                          cachedDataType="wstr"
+                          cachedLength="27"
+                          cachedName="EMPLOYMENT_START_DATE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYMENT_START_DATE]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_START_DATE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[EMPLOYMENT_END_DATE]"
+                          cachedDataType="wstr"
+                          cachedLength="27"
+                          cachedName="EMPLOYMENT_END_DATE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYMENT_END_DATE]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_END_DATE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[OBJKEY]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OBJKEY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJKEY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[OBJVERSION]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="OBJVERSION"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[OBJID]"
+                          cachedDataType="wstr"
+                          cachedLength="18"
+                          cachedName="OBJID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[COMPANY_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="COMPANY_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[EMP_NO]"
+                          dataType="wstr"
+                          length="11"
+                          name="EMP_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[PERSON_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="PERSON_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[FNAME]"
+                          dataType="wstr"
+                          length="100"
+                          name="FNAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[LNAME]"
+                          dataType="wstr"
+                          length="100"
+                          name="LNAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[INTERNAL_DISPLAY_NAME]"
+                          dataType="wstr"
+                          length="1000"
+                          name="INTERNAL_DISPLAY_NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYEE_STATUS]"
+                          dataType="wstr"
+                          length="4000"
+                          name="EMPLOYEE_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYMENT_TYPE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="EMPLOYMENT_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYEE_STATUS_SEQ_NO]"
+                          dataType="r8"
+                          name="EMPLOYEE_STATUS_SEQ_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ORG_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="ORG_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[POS_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="POS_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYMENT_START_DATE]"
+                          dataType="dbTimeStamp2"
+                          name="EMPLOYMENT_START_DATE"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[EMPLOYMENT_END_DATE]"
+                          dataType="dbTimeStamp2"
+                          name="EMPLOYMENT_END_DATE"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="40"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          name="OBJID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="i4"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="i4"
+                          name="ErrorColumn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC Get Records"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable">User::SQL_CustInfo_Select</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CUSTOMER_ID]
+      ,[NAME]
+      ,[CREATION_DATE]
+      ,[ASSOCIATION_NO]
+      ,[PARTY]
+      ,[DEFAULT_DOMAIN]
+      ,[DEFAULT_LANGUAGE]
+      ,[DEFAULT_LANGUAGE_DB]
+      ,[COUNTRY]
+      ,[COUNTRY_DB]
+      ,[PARTY_TYPE]
+      ,[PARTY_TYPE_DB]
+      ,[CORPORATE_FORM]
+      ,[IDENTIFIER_REFERENCE]
+      ,[IDENTIFIER_REF_VALIDATION]
+      ,[IDENTIFIER_REF_VALIDATION_DB]
+      ,[PICTURE_ID]
+      ,[ONE_TIME]
+      ,[ONE_TIME_DB]
+      ,[CUSTOMER_CATEGORY]
+      ,[CUSTOMER_CATEGORY_DB]
+      ,[B2B_CUSTOMER]
+      ,[B2B_CUSTOMER_DB]
+      ,[CUSTOMER_TAX_USAGE_TYPE]
+      ,[TEXT_ID$]
+      ,[OBJKEY]
+      ,[OBJVERSION]
+      ,[OBJID]
+      ,[meta_last_modified_date]
+      ,[meta_is_deleted]
+  FROM [PSDW_IFS_DV].[dbo].[customer_info_tbl]
+  order  by  [meta_last_modified_date] desc</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::SQL_CompanyPerson_Select</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+                      connectionManagerRefId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          name="OBJKEY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          length="40"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          name="OBJVERSION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJID]"
+                          length="18"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJID]"
+                          name="OBJID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[COMPANY_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[COMPANY_ID]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[COMPANY_ID]"
+                          name="COMPANY_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMP_NO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[EMP_NO]"
+                          length="11"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMP_NO]"
+                          name="EMP_NO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[PERSON_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[PERSON_ID]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[PERSON_ID]"
+                          name="PERSON_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[FNAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[FNAME]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[FNAME]"
+                          name="FNAME"
+                          truncationRowDisposition="RedirectRow" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[LNAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[LNAME]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[LNAME]"
+                          name="LNAME"
+                          truncationRowDisposition="RedirectRow" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[INTERNAL_DISPLAY_NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[INTERNAL_DISPLAY_NAME]"
+                          length="1000"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[INTERNAL_DISPLAY_NAME]"
+                          name="INTERNAL_DISPLAY_NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYEE_STATUS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYEE_STATUS]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYEE_STATUS]"
+                          name="EMPLOYEE_STATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_TYPE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_TYPE]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_TYPE]"
+                          name="EMPLOYMENT_TYPE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYEE_STATUS_SEQ_NO]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYEE_STATUS_SEQ_NO]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYEE_STATUS_SEQ_NO]"
+                          name="EMPLOYEE_STATUS_SEQ_NO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[ORG_CODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[ORG_CODE]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[ORG_CODE]"
+                          name="ORG_CODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[POS_CODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[POS_CODE]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[POS_CODE]"
+                          name="POS_CODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_START_DATE]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_START_DATE]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_START_DATE]"
+                          name="EMPLOYMENT_START_DATE"
+                          scale="7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_END_DATE]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_END_DATE]"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[EMPLOYMENT_END_DATE]"
+                          name="EMPLOYMENT_END_DATE"
+                          scale="7"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="40"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          name="OBJID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[COMPANY_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="COMPANY_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[EMP_NO]"
+                          dataType="wstr"
+                          length="11"
+                          name="EMP_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[PERSON_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="PERSON_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[FNAME]"
+                          dataType="wstr"
+                          length="100"
+                          name="FNAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[LNAME]"
+                          dataType="wstr"
+                          length="100"
+                          name="LNAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[INTERNAL_DISPLAY_NAME]"
+                          dataType="wstr"
+                          length="1000"
+                          name="INTERNAL_DISPLAY_NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYEE_STATUS]"
+                          dataType="wstr"
+                          length="4000"
+                          name="EMPLOYEE_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_TYPE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="EMPLOYMENT_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYEE_STATUS_SEQ_NO]"
+                          dataType="r8"
+                          name="EMPLOYEE_STATUS_SEQ_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[ORG_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="ORG_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[POS_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="POS_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_START_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          name="EMPLOYMENT_START_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[EMPLOYMENT_END_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          name="EMPLOYMENT_END_DATE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[COMPANY_ID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[COMPANY_ID]"
+                          name="COMPANY_ID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMP_NO]"
+                          dataType="wstr"
+                          length="11"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMP_NO]"
+                          name="EMP_NO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[PERSON_ID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[PERSON_ID]"
+                          name="PERSON_ID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[FNAME]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[FNAME]"
+                          name="FNAME" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[LNAME]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[LNAME]"
+                          name="LNAME" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[INTERNAL_DISPLAY_NAME]"
+                          dataType="wstr"
+                          length="1000"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[INTERNAL_DISPLAY_NAME]"
+                          name="INTERNAL_DISPLAY_NAME" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYEE_STATUS]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYEE_STATUS]"
+                          name="EMPLOYEE_STATUS" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_TYPE]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_TYPE]"
+                          name="EMPLOYMENT_TYPE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYEE_STATUS_SEQ_NO]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYEE_STATUS_SEQ_NO]"
+                          name="EMPLOYEE_STATUS_SEQ_NO" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ORG_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ORG_CODE]"
+                          name="ORG_CODE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[POS_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[POS_CODE]"
+                          name="POS_CODE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_START_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_START_DATE]"
+                          name="EMPLOYMENT_START_DATE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_END_DATE]"
+                          dataType="wstr"
+                          length="27"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[EMPLOYMENT_END_DATE]"
+                          name="EMPLOYMENT_END_DATE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          name="OBJKEY" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          name="OBJVERSION" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJID]"
+                          name="OBJID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Generate CompanyPerson Files\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::TotalRecords</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Generate CompanyPerson Files\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Generate CompanyPerson Files\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Sequence Container\Generate CompanyPerson Files\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Generate CompanyPerson Files.Paths[Data Conversion Output]"
+                  endId="Package\Sequence Container\Generate CompanyPerson Files\Row Count.Inputs[Row Count Input 1]"
+                  name="Data Conversion Output"
+                  startId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Sequence Container\Generate CompanyPerson Files.Paths[OLE DB Source Error Output]"
+                  endId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1.Inputs[Flat File Destination Input]"
+                  name="OLE DB Source Error Output"
+                  startId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output]" />
+                <path
+                  refId="Package\Sequence Container\Generate CompanyPerson Files.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Sequence Container\Generate CompanyPerson Files.Paths[Row Count Output 1]"
+                  endId="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Sequence Container\Generate CompanyPerson Files\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Package Completed"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{35B55907-69F9-459C-941A-19516540B63E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Package Completed"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [dbo].[az_upload_audit_log_tbl]
+SELECT '"+ @[System::PackageName] +"','Package Completed','SQL to Azure Landing', SUBSTRING('"+ @[User::Targetfilename] +"', 38, 35), '"+ @[User::CompanyPerson] +"', "+(DT_WSTR,12) @[User::TotalRecords] +", getdate(), ''"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[az_upload_audit_log_tbl]&#xA;SELECT 'IFSCompanyPerson','Package Completed','SQL to Azure Landing', SUBSTRING('\\psfile3\Data Solutions\DW-DEV\SSIS\company_person_tbl.csv', 38, 35), 'company_person_tbl', 0, getdate(), ''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{039E29B9-D32B-46D5-A498-D9710D1134C4}"
+          DTS:From="Package\Sequence Container\Generate CompanyPerson Files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\File System Task - Change CSV Filename" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{65E77C26-0642-482F-B62B-F49C9DDFBA18}"
+          DTS:From="Package\Sequence Container\File System Task - Change CSV Filename"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Azure Blob Upload CSV" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{B07435A3-A8B7-499E-8968-B7769D67C116}"
+          DTS:From="Package\Sequence Container\Azure Blob Upload CSV"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\Package Completed" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{98F3CD26-6244-4DCD-BFB9-9966FF238495}"
+      DTS:From="Package\Package Started"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Sequence Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{142C80BF-F8A3-4742-9821-9D25C35805D0}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{A3D0F3D3-7286-4217-B468-8CE85B7C0055}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Package Failure"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6BF2F31C-24B0-469C-833B-A1AE9CF9A611}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Package Failure"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [PSDW_IFS_DV].[dbo].[az_upload_audit_log_tbl]
+SELECT "+ @[System::PackageName] +",'Package Failed', '', "+ @[User::CompanyPerson] +", 0, getdate(), "+ replace(@[System::ErrorDescription], "","") +""</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+              SQLTask:SqlStatementSource="INSERT INTO [PSDW_IFS_DV].[dbo].[az_upload_audit_log_tbl]&#xA;SELECT IFSCompanyPerson,'Package Failed', '', company_person_tbl, 0, getdate(), " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Package Started"
+          TopLeft="600,13" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Sequence Container\Azure Blob Upload CSV"
+          TopLeft="106,162" />
+        <NodeLayout
+          Size="285,42"
+          Id="Package\Sequence Container\File System Task - Change CSV Filename"
+          TopLeft="63,89" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\Sequence Container\Generate CompanyPerson Files"
+          TopLeft="88,12" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Sequence Container\Package Completed"
+          TopLeft="113,290" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="205.75,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="204.75,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="203,204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,86"
+              Start="0,0"
+              End="0,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="411,673"
+          Size="411,716"
+          Id="Package\Sequence Container"
+          TopLeft="482,114" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="683.75,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="158,42"
+          Id="Package.EventHandlers[OnError]\Package Failure"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Generate CompanyPerson Files">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination"
+          TopLeft="429,288" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records"
+          TopLeft="446,56" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Sequence Container\Generate CompanyPerson Files\Row Count"
+          TopLeft="205,284" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Sequence Container\Generate CompanyPerson Files\Data Conversion"
+          TopLeft="192,155" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Sequence Container\Generate CompanyPerson Files\Flat File Destination 1"
+          TopLeft="715,199" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Generate CompanyPerson Files.Paths[Data Conversion Output]"
+          TopLeft="272,197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87"
+              Start="0,0"
+              End="0,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Generate CompanyPerson Files.Paths[Row Count Output 1]"
+          TopLeft="338,307">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91,0"
+              Start="0,0"
+              End="83.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="83.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Generate CompanyPerson Files.Paths[OLE DB Source Output]"
+          TopLeft="512.333333333333,98">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-239.833333333333,57"
+              Start="0,0"
+              End="-239.833333333333,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.0783316378433" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.0783316378433"
+                    Point2="0,23.0783316378433"
+                    Point3="-4,23.0783316378433" />
+                  <mssgle:LineSegment
+                    End="-235.833333333333,23.0783316378433" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-235.833333333333,23.0783316378433"
+                    Point2="-239.833333333333,23.0783316378433"
+                    Point3="-239.833333333333,27.0783316378433" />
+                  <mssgle:LineSegment
+                    End="-239.833333333333,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Generate CompanyPerson Files.Paths[OLE DB Source Error Output]"
+          TopLeft="574.666666666667,98">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="232.833333333333,101"
+              Start="0,0"
+              End="232.833333333333,93.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.8931841302136" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.8931841302136"
+                    Point2="0,40.8931841302136"
+                    Point3="4,40.8931841302136" />
+                  <mssgle:LineSegment
+                    End="228.833333333333,40.8931841302136" />
+                  <mssgle:CubicBezierSegment
+                    Point1="228.833333333333,40.8931841302136"
+                    Point2="232.833333333333,40.8931841302136"
+                    Point3="232.833333333333,44.8931841302136" />
+                  <mssgle:LineSegment
+                    End="232.833333333333,93.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="52.9827604166665,45.8931841302136,126.8678125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Generate CompanyPerson Files\OLE_SRC Get Records">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

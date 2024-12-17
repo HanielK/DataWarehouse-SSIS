@@ -1,0 +1,76 @@
+/**************************************************************
+SCRIPT TO PROVIDE TABLE READ/WRITE PERMISSIONS FOR PS\PSDS
+**************************************************************/
+USE [PSDW_IFS]
+GO
+
+GRANT ALTER ON [dbo].[az_upload_audit_log_tbl]TO [PS\PSDS]
+GRANT INSERT ON [dbo].[az_upload_audit_log_tbl] TO [PS\PSDS] 
+GRANT SELECT ON [dbo].[az_upload_audit_log_tbl] TO [PS\PSDS]
+GRANT DELETE ON [dbo].[company_person_tbl] TO [PS\PSDS]
+
+GO
+
+
+USE [PSDW_IFS]
+GO
+
+GRANT ALTER ON [dbo].[company_person_tbl] TO [PS\PSDS]
+GRANT INSERT ON [dbo].[company_person_tbl] TO [PS\PSDS] 
+GRANT SELECT ON [dbo].[company_person_tbl] TO [PS\PSDS] 
+GRANT DELETE ON [dbo].[company_person_tbl] TO [PS\PSDS] 
+GO
+
+USE [PSDW_IFS]
+GO
+
+GRANT ALTER ON [dbo].[customer_info_tbl] TO [PS\PSDS]
+GRANT INSERT ON [dbo].[customer_info_tbl] TO [PS\PSDS] 
+GRANT SELECT ON [dbo].[customer_info_tbl] TO [PS\PSDS] 
+GRANT DELETE ON [dbo].[customer_info_tbl] TO [PS\PSDS] 
+GO
+
+USE [PSDW_IFS]
+GO
+
+GRANT ALTER ON [dbo].[equipment_functional_cfv_tbl] TO [PS\PSDS]
+GRANT INSERT ON [dbo].[equipment_functional_cfv_tbl] TO [PS\PSDS] 
+GRANT SELECT ON [dbo].[equipment_functional_cfv_tbl] TO [PS\PSDS] 
+GRANT DELETE ON [dbo].[equipment_functional_cfv_tbl] TO [PS\PSDS] 
+GO
+
+USE [PSDW_IFS]
+GO
+
+GRANT ALTER ON [dbo].[equipment_functional_tbl] TO [PS\PSDS] 
+GRANT INSERT ON [dbo].[equipment_functional_tbl] TO [PS\PSDS] 
+GRANT SELECT ON [dbo].[equipment_functional_tbl] TO [PS\PSDS] 
+GRANT DELETE ON [dbo].[equipment_functional_tbl] TO [PS\PSDS] 
+GO
+
+USE [PSDW_IFS]
+GO
+
+GRANT ALTER ON [dbo].[location_party_address_pub_tbl] TO [PS\PSDS]
+GRANT INSERT ON [dbo].[location_party_address_pub_tbl] TO [PS\PSDS] 
+GRANT SELECT ON [dbo].[location_party_address_pub_tbl] TO [PS\PSDS] 
+GRANT DELETE ON [dbo].[location_party_address_pub_tbl] TO [PS\PSDS]
+
+USE [PSDW_IFS]
+GO
+
+GRANT ALTER ON [dbo].[project_cfv_tbl] TO [PS\PSDS]
+GRANT INSERT ON [dbo].[project_cfv_tbl] TO [PS\PSDS] 
+GRANT SELECT ON [dbo].[project_cfv_tbl] TO [PS\PSDS] 
+GRANT DELETE ON [dbo].[project_cfv_tbl] TO [PS\PSDS]
+
+USE [PSDW_IFS]
+GO
+
+GRANT ALTER ON [dbo].[sc_service_contract_tbl] TO [PS\PSDS]
+GRANT INSERT ON [dbo].[sc_service_contract_tbl] TO [PS\PSDS] 
+GRANT SELECT ON [dbo].[sc_service_contract_tbl] TO [PS\PSDS] 
+GRANT DELETE ON [dbo].[sc_service_contract_tbl] TO [PS\PSDS]
+
+
+GO

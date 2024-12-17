@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SSIS Connection Manager for Azure Storage"
+  DTS:DTSID="{E48B7F9F-B774-4BC1-A12A-28CADBE431A8}"
+  DTS:CreationName="AzureStorage">
+  <DTS:ObjectData>
+    <AzureStorageConnectionManager
+      ConnectionString="AuthType=ServicePrincipal;ServicePrincipalId=bfd3016f-8155-471d-96ee-ae36a8623576;TenantId=d1f8ad8c-baed-4518-a48c-feade60a79f4;AccountName=psdwdvstordata;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
+      ConnectByProxy="False">
+      <ServicePrincipalKey
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVaXw3HPZkyfY4rcoX3NqwAAAAACAAAAAAADZgAAwAAAABAAAAAGVPirhzDG/fmP/mMHo4orAAAAAASAAACgAAAAEAAAAECZyfd4nQdx32dkrGfTPlBoAAAAmCjZB8lX1d7KQNk40o7BlMDHU+kwuxbB+/WDjgnOyCLu5LAUZHLGsYVawmGorO6zQylK+ZBITKI1xusNeJ1Idojvm/it8imgDcDl16/SZ6tW+fFNXKcnJ0ojXPPG46CIgYeCfVT0rgMUAAAAuGQtTze4kPEoKEFCZDrCSxQX/bI=</ServicePrincipalKey>
+    </AzureStorageConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

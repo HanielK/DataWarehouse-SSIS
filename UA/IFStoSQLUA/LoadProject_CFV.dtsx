@@ -1,0 +1,1403 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/6/2024 9:57:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VSHWAITHAKA01"
+  DTS:CreatorName="ps\haniel.waithaka"
+  DTS:DTSID="{29E50AE3-BA54-4789-8AB9-3DDD441804E2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LoadProject_CFV"
+  DTS:PackageType="5"
+  DTS:VersionBuild="96"
+  DTS:VersionGUID="{26712E90-6EE8-4E3D-BF7D-82A573B49763}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_UA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0B121E79-A98E-44BB-85F3-49AE02988266}"
+      DTS:ObjectName="NCDIASQ002DV.PSDW_IFS_UA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=NCDIASQ002DV;Initial Catalog=PSDW_IFS_UA;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-HistLoadCompanyPerson-{0B121E79-A98E-44BB-85F3-49AE02988266}NCDIASQ002DV.PSDW_IFS_DV;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4C8401EB-4DD3-4D4C-898D-7501BA7A94EF}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT *FROM OPENQUERY(IFS_TST_APP10, '&#xA;SELECT PROJECT_ID, NAME, CUSTOMER_ID, COMPANY, SITE, PROGRAM_ID, DATE_CREATED, DATE_MODIFIED, CATEGORY1_ID, CATEGORY2_ID, STATE, OBJKEY, OBJVERSION, OBJID, CF$_OPPORTUNITY_NO, CF$_ORI_COST, CF$_ORI_MARGIN, CF$_ORI_PROFIT, CF$_ORI_REVENUE  FROM POWE1APP.PROJECT_CFV&#xA;&#xA;');&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IFSView_project_cfv_Select">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT *FROM OPENQUERY(IFS_TST_APP10, '
+SELECT PROJECT_ID, NAME, CUSTOMER_ID, COMPANY, SITE, PROGRAM_ID, DATE_CREATED, DATE_MODIFIED, CATEGORY1_ID, CATEGORY2_ID, STATE, OBJKEY, OBJVERSION, OBJID, CF$_OPPORTUNITY_NO, CF$_ORI_COST, CF$_ORI_MARGIN, CF$_ORI_PROFIT, CF$_ORI_REVENUE  FROM POWE1APP.PROJECT_CFV
+
+');</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6774921F-C316-442C-B87E-619B09C2F4E5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MaxLastUpdated_ProjectCFV">
+      <DTS:VariableValue
+        DTS:DataType="7">11/6/2024 12:58:00 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D000DB7B-8FD3-4179-83BD-2DDBC556C7F9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Project_CFV">
+      <DTS:VariableValue
+        DTS:DataType="8">project_cfv_tbl</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9C7CE566-299A-4C6A-B794-652132711E65}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Targetfilename">
+      <DTS:VariableValue
+        DTS:DataType="8">N/A</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{76D60B4E-9981-44A3-8740-5185A866033D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TotalRecords">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{281418D6-9713-4A9E-92E1-F3CEDDA8B75A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;USE [PSDW_IFS_UA]&#xA;GO&#xA;&#xA;SET ANSI_NULLS ON&#xA;GO&#xA;&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;TRUNCATE TABLE [dbo].[project_cfv_tbl];&#xA;GO&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TruncateProject_CFV">
+      <DTS:VariableValue
+        DTS:DataType="8">USE [PSDW_IFS_UA]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+TRUNCATE TABLE [dbo].[project_cfv_tbl];
+GO</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Project_CFV Data"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{5BA7387D-4C6F-49C8-A5B5-C542A14CCE2E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Project_CFV Data">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{2FB04AA3-7D8C-4121-828E-B7E942C54F21}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Variable">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Load Project_CFV Data\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E582FFB9-506B-4E1E-B72D-0EB8324229C7}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[OBJID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="18"
+                          cachedName="OBJID"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[OBJID(DT_STR)]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[OBJID(DT_STR)]"
+                          name="OBJID(DT_STR)"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[project_cfv_tbl]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_UA]"
+                      connectionManagerRefId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_UA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OBJVERSION]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="OBJVERSION"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJVERSION]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJVERSION]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OBJKEY]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OBJKEY"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJKEY]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJKEY]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PROJECT_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="PROJECT_ID"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PROJECT_ID]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PROJECT_ID]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="35"
+                          cachedName="NAME"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NAME]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CUSTOMER_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="CUSTOMER_ID"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[COMPANY]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="COMPANY"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COMPANY]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COMPANY]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SITE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="SITE"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SITE]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SITE]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PROGRAM_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="PROGRAM_ID"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PROGRAM_ID]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PROGRAM_ID]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DATE_CREATED]"
+                          cachedDataType="wstr"
+                          cachedLength="27"
+                          cachedName="DATE_CREATED"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATE_CREATED]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE_CREATED]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DATE_MODIFIED]"
+                          cachedDataType="wstr"
+                          cachedLength="27"
+                          cachedName="DATE_MODIFIED"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATE_MODIFIED]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE_MODIFIED]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CATEGORY1_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="CATEGORY1_ID"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORY1_ID]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CATEGORY1_ID]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CATEGORY2_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="CATEGORY2_ID"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORY2_ID]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CATEGORY2_ID]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[STATE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="STATE"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[STATE]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CF$_OPPORTUNITY_NO]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="CF$_OPPORTUNITY_NO"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CF$_OPPORTUNITY_NO]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_OPPORTUNITY_NO]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CF$_ORI_COST]"
+                          cachedDataType="r8"
+                          cachedName="CF$_ORI_COST"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CF$_ORI_COST]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_ORI_COST]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CF$_ORI_MARGIN]"
+                          cachedDataType="r8"
+                          cachedName="CF$_ORI_MARGIN"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CF$_ORI_MARGIN]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_ORI_MARGIN]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CF$_ORI_PROFIT]"
+                          cachedDataType="r8"
+                          cachedName="CF$_ORI_PROFIT"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CF$_ORI_PROFIT]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_ORI_PROFIT]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CF$_ORI_REVENUE]"
+                          cachedDataType="r8"
+                          cachedName="CF$_ORI_REVENUE"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CF$_ORI_REVENUE]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_ORI_REVENUE]" />
+                        <inputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OBJID(DT_STR)]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="OBJID(DT_STR)"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJID]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[OBJID(DT_STR)]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="OBJID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PROJECT_ID]"
+                          dataType="wstr"
+                          length="10"
+                          name="PROJECT_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="35"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="CUSTOMER_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COMPANY]"
+                          dataType="wstr"
+                          length="20"
+                          name="COMPANY" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SITE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="SITE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PROGRAM_ID]"
+                          dataType="wstr"
+                          length="10"
+                          name="PROGRAM_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATE_CREATED]"
+                          dataType="wstr"
+                          length="27"
+                          name="DATE_CREATED" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DATE_MODIFIED]"
+                          dataType="wstr"
+                          length="27"
+                          name="DATE_MODIFIED" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORY1_ID]"
+                          dataType="wstr"
+                          length="10"
+                          name="CATEGORY1_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORY2_ID]"
+                          dataType="wstr"
+                          length="10"
+                          name="CATEGORY2_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[STATE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="STATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CF$_OPPORTUNITY_NO]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_OPPORTUNITY_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CF$_ORI_COST]"
+                          dataType="r8"
+                          name="CF$_ORI_COST" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CF$_ORI_MARGIN]"
+                          dataType="r8"
+                          name="CF$_ORI_MARGIN" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CF$_ORI_PROFIT]"
+                          dataType="r8"
+                          name="CF$_ORI_PROFIT" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CF$_ORI_REVENUE]"
+                          dataType="r8"
+                          name="CF$_ORI_REVENUE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::IFSView_project_cfv_Select</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_UA]"
+                      connectionManagerRefId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_UA]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJID]"
+                          length="18"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJID]"
+                          name="OBJID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          length="40"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          name="OBJVERSION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          length="50"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          name="OBJKEY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PROJECT_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PROJECT_ID]"
+                          length="10"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PROJECT_ID]"
+                          name="PROJECT_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          length="35"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[NAME]"
+                          name="NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_ID]"
+                          length="20"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]"
+                          name="CUSTOMER_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COMPANY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COMPANY]"
+                          length="20"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COMPANY]"
+                          name="COMPANY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SITE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SITE]"
+                          length="4000"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SITE]"
+                          name="SITE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PROGRAM_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PROGRAM_ID]"
+                          length="10"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[PROGRAM_ID]"
+                          name="PROGRAM_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE_CREATED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATE_CREATED]"
+                          length="27"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE_CREATED]"
+                          name="DATE_CREATED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE_MODIFIED]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATE_MODIFIED]"
+                          length="27"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DATE_MODIFIED]"
+                          name="DATE_MODIFIED"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CATEGORY1_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY1_ID]"
+                          length="10"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CATEGORY1_ID]"
+                          name="CATEGORY1_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CATEGORY2_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY2_ID]"
+                          length="10"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CATEGORY2_ID]"
+                          name="CATEGORY2_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[STATE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[STATE]"
+                          length="4000"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[STATE]"
+                          name="STATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_OPPORTUNITY_NO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CF$_OPPORTUNITY_NO]"
+                          length="4000"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_OPPORTUNITY_NO]"
+                          name="CF$_OPPORTUNITY_NO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_ORI_COST]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CF$_ORI_COST]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_ORI_COST]"
+                          name="CF$_ORI_COST"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_ORI_MARGIN]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CF$_ORI_MARGIN]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_ORI_MARGIN]"
+                          name="CF$_ORI_MARGIN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_ORI_PROFIT]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CF$_ORI_PROFIT]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_ORI_PROFIT]"
+                          name="CF$_ORI_PROFIT"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_ORI_REVENUE]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CF$_ORI_REVENUE]"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CF$_ORI_REVENUE]"
+                          name="CF$_ORI_REVENUE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="OBJID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PROJECT_ID]"
+                          dataType="wstr"
+                          length="10"
+                          name="PROJECT_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="35"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="CUSTOMER_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COMPANY]"
+                          dataType="wstr"
+                          length="20"
+                          name="COMPANY" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SITE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="SITE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PROGRAM_ID]"
+                          dataType="wstr"
+                          length="10"
+                          name="PROGRAM_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATE_CREATED]"
+                          dataType="wstr"
+                          length="27"
+                          name="DATE_CREATED" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DATE_MODIFIED]"
+                          dataType="wstr"
+                          length="27"
+                          name="DATE_MODIFIED" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY1_ID]"
+                          dataType="wstr"
+                          length="10"
+                          name="CATEGORY1_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY2_ID]"
+                          dataType="wstr"
+                          length="10"
+                          name="CATEGORY2_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[STATE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="STATE" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CF$_OPPORTUNITY_NO]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CF$_OPPORTUNITY_NO" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CF$_ORI_COST]"
+                          dataType="r8"
+                          name="CF$_ORI_COST" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CF$_ORI_MARGIN]"
+                          dataType="r8"
+                          name="CF$_ORI_MARGIN" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CF$_ORI_PROFIT]"
+                          dataType="r8"
+                          name="CF$_ORI_PROFIT" />
+                        <externalMetadataColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CF$_ORI_REVENUE]"
+                          dataType="r8"
+                          name="CF$_ORI_REVENUE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PROJECT_ID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PROJECT_ID]"
+                          name="PROJECT_ID" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          dataType="wstr"
+                          length="35"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          name="NAME" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_ID]"
+                          name="CUSTOMER_ID" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COMPANY]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COMPANY]"
+                          name="COMPANY" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SITE]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SITE]"
+                          name="SITE" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PROGRAM_ID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PROGRAM_ID]"
+                          name="PROGRAM_ID" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATE_CREATED]"
+                          dataType="wstr"
+                          length="27"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATE_CREATED]"
+                          name="DATE_CREATED" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATE_MODIFIED]"
+                          dataType="wstr"
+                          length="27"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DATE_MODIFIED]"
+                          name="DATE_MODIFIED" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CATEGORY1_ID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CATEGORY1_ID]"
+                          name="CATEGORY1_ID" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CATEGORY2_ID]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CATEGORY2_ID]"
+                          name="CATEGORY2_ID" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[STATE]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[STATE]"
+                          name="STATE" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJID]"
+                          name="OBJID" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          name="OBJVERSION" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          name="OBJKEY" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CF$_OPPORTUNITY_NO]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CF$_OPPORTUNITY_NO]"
+                          name="CF$_OPPORTUNITY_NO" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CF$_ORI_COST]"
+                          dataType="r8"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CF$_ORI_COST]"
+                          name="CF$_ORI_COST" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CF$_ORI_MARGIN]"
+                          dataType="r8"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CF$_ORI_MARGIN]"
+                          name="CF$_ORI_MARGIN" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CF$_ORI_PROFIT]"
+                          dataType="r8"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CF$_ORI_PROFIT]"
+                          name="CF$_ORI_PROFIT" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CF$_ORI_REVENUE]"
+                          dataType="r8"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CF$_ORI_REVENUE]"
+                          name="CF$_ORI_REVENUE" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load Project_CFV Data\Data Flow Task\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::TotalRecords</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Load Project_CFV Data\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Project_CFV Data\Data Flow Task\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Load Project_CFV Data\Data Flow Task\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Load Project_CFV Data\Data Flow Task.Paths[Data Conversion Output]"
+                  endId="Package\Load Project_CFV Data\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
+                  name="Data Conversion Output"
+                  startId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Load Project_CFV Data\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\Load Project_CFV Data\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Load Project_CFV Data\Data Flow Task.Paths[Row Count Output 1]"
+                  endId="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Load Project_CFV Data\Data Flow Task\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Project_CFV Data\Package Completed"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D974D8E4-3E9C-4418-B68C-4BD99A429D9C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Package Completed"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [PSDW_IFS_UA].[dbo].[az_upload_audit_log_tbl]
+SELECT '"+ @[System::PackageName] +"','Package Completed','IFS to SQL DB', '"+ @[User::Targetfilename] +"', '"+ @[User::Project_CFV]+"', "+(DT_WSTR,12) @[User::TotalRecords] +", getdate(), ''"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0B121E79-A98E-44BB-85F3-49AE02988266}"
+              SQLTask:SqlStatementSource="INSERT INTO [PSDW_IFS_UA].[dbo].[az_upload_audit_log_tbl]&#xA;SELECT 'LoadProject_CFV','Package Completed','IFS to SQL DB', 'N/A', 'project_cfv_tbl', 0, getdate(), ''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Project_CFV Data\Truncate Tabel"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C5DFA093-6F0D-4D12-A7CC-CA16A6A9960B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate Tabel"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0B121E79-A98E-44BB-85F3-49AE02988266}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::TruncateProject_CFV" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Project_CFV Data.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{07D510F4-35DD-4B9F-85CA-6C4704ED6F08}"
+          DTS:From="Package\Load Project_CFV Data\Data Flow Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Load Project_CFV Data\Package Completed" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Project_CFV Data.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{E79243A8-E904-487A-AAFD-CA0F374AA490}"
+          DTS:From="Package\Load Project_CFV Data\Truncate Tabel"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Load Project_CFV Data\Data Flow Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Package Started"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0A5907C8-0C8D-473C-8A87-85659FAB759E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Package Started"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"INSERT INTO [PSDW_IFS_UA].[dbo].[az_upload_audit_log_tbl]
+SELECT '"+ @[System::PackageName] +"','Package Started', 'IFS to SQL DB', '', '', 0, getdate(), ''
+"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0B121E79-A98E-44BB-85F3-49AE02988266}"
+          SQLTask:SqlStatementSource="INSERT INTO [PSDW_IFS_UA].[dbo].[az_upload_audit_log_tbl]&#xA;SELECT 'LoadProject_CFV','Package Started', 'IFS to SQL DB', '', '', 0, getdate(), ''&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E37AB921-76A5-41A9-A2A9-7A1854EC588A}"
+      DTS:From="Package\Package Started"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load Project_CFV Data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="169,42"
+          Id="Package\Load Project_CFV Data\Data Flow Task"
+          TopLeft="24,93.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Load Project_CFV Data\Package Completed"
+          TopLeft="17,170" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Load Project_CFV Data\Truncate Tabel"
+          TopLeft="28,9" />
+        <EdgeLayout
+          Id="Package\Load Project_CFV Data.PrecedenceConstraints[Constraint]"
+          TopLeft="108.25,135.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.5"
+              Start="0,0"
+              End="0,27">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Project_CFV Data.PrecedenceConstraints[Constraint 1]"
+          TopLeft="106.5,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.5"
+              Start="0,0"
+              End="0,35">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="240,267"
+          Size="240,310"
+          Id="Package\Load Project_CFV Data"
+          TopLeft="435,118" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Package Started"
+          TopLeft="470,36" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="552.5,78">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Project_CFV Data\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Load Project_CFV Data\Data Flow Task\Row Count"
+          TopLeft="281,212" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination"
+          TopLeft="555,216" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source"
+          TopLeft="473,18" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Load Project_CFV Data\Data Flow Task\Data Conversion"
+          TopLeft="292,113" />
+        <EdgeLayout
+          Id="Package\Load Project_CFV Data\Data Flow Task.Paths[Row Count Output 1]"
+          TopLeft="411,235">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="144,0"
+              Start="0,0"
+              End="136.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="136.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Project_CFV Data\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="548,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-175.5,53"
+              Start="0,0"
+              End="-175.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="-4,26.5" />
+                  <mssgle:LineSegment
+                    End="-171.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-171.5,26.5"
+                    Point2="-175.5,26.5"
+                    Point3="-175.5,30.5" />
+                  <mssgle:LineSegment
+                    End="-175.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Project_CFV Data\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="372.5,155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-26.5,57"
+              Start="0,0"
+              End="-26.5,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="-4,28.5" />
+                  <mssgle:LineSegment
+                    End="-22.5,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,28.5"
+                    Point2="-26.5,28.5"
+                    Point3="-26.5,32.5" />
+                  <mssgle:LineSegment
+                    End="-26.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Project_CFV Data\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Project_CFV Data\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

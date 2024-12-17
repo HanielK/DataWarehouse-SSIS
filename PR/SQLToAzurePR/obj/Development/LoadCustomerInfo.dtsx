@@ -1,0 +1,1132 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/5/2024 2:27:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VSHWAITHAKA01"
+  DTS:CreatorName="ps\haniel.waithaka"
+  DTS:DTSID="{2C2EE487-C5FE-47C2-8617-257CE36D3E2D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LoadCustomerInfo"
+  DTS:PackageType="5"
+  DTS:VersionBuild="173"
+  DTS:VersionGUID="{63CBD94C-B51E-4A94-97E9-DFD4F2A2CECD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager_csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="Load CSV with Data"
+      DTS:DTSID="{740C0C81-F866-4616-819E-AC517A316AD3}"
+      DTS:ObjectName="Flat File Connection Manager_csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="\\psfile3\Data Solutions\DW-PROD\SSIS\customer_info.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER_ID"
+              DTS:DTSID="{539A230E-5F40-491F-8651-D16C4E7AE7AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NAME"
+              DTS:DTSID="{6E4535B2-C72A-4ACD-A921-D9E5EC1B6312}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="304"
+              DTS:DataScale="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CREATION_DATE"
+              DTS:DTSID="{FB9D3DE5-FA15-4355-9A7A-ED075EF48ADB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ONE_TIME_DB"
+              DTS:DTSID="{942B2523-7DD2-416C-9A12-3D52B5A56DF5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CUSTOMER_CATEGORY"
+              DTS:DTSID="{E76678A5-C81E-48E7-A881-0699102670F0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJKEY"
+              DTS:DTSID="{421C0824-E098-475D-B4A1-2F670EC26428}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="14"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJVERSION"
+              DTS:DTSID="{852DB006-58FA-415A-9F97-198B1D7E9F3A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJID"
+              DTS:DTSID="{5234061D-884A-405B-BC8D-CC434367DB6B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_PR]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+      DTS:ObjectName="NCDIASQ002DV.PSDW_IFS_PR">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=NCDIASQ001;Initial Catalog=PSDW_IFS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-IFSCustomerInfo-{BC5B107E-2583-43B6-9107-5F7747E77497}NCDIASQ002DV.PSDW_IFS_DV;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSIS Connection Manager for Azure Storage]"
+      DTS:CreationName="AzureStorage"
+      DTS:DTSID="{E48B7F9F-B774-4BC1-A12A-28CADBE431A8}"
+      DTS:ObjectName="SSIS Connection Manager for Azure Storage">
+      <DTS:ObjectData>
+        <AzureStorageConnectionManager
+          ConnectionString="AuthType=ServicePrincipal;ServicePrincipalId=095f40a9-5aee-411c-b403-a7317165f87c;TenantId=d1f8ad8c-baed-4518-a48c-feade60a79f4;AccountName=psdwprstordata;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
+          ConnectByProxy="False">
+          <ServicePrincipalKey
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVaXw3HPZkyfY4rcoX3NqwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACJEc9b4mvQASQ94ElXhiqlAAAAAASAAACgAAAAEAAAAKyKTKWVsRx6kieF0LggYPVYAAAAVDYeO7yRvoxuQSoxbsZRy7tDf87Xel/fzEQ2FELEifh1JgeLCe+dafe3UEhCVJ7NBsBjapFx8/hjb5/hxxne14H42mU0GY9rmI6Nqxm8RiBYNNnBprg3jxQAAAA2WW6jOnCo4MZeJJitOdT3ra+msA</ServicePrincipalKey>
+        </AzureStorageConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BE292D01-0858-44C5-B953-B40D16FB2508}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CustInfo">
+      <DTS:VariableValue
+        DTS:DataType="8">customer_info_tbl</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2CFE202A-DBF9-4C3F-85E5-0F45935EF927}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filepath">
+      <DTS:VariableValue
+        DTS:DataType="8">landing</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B296C265-62C9-4F7E-B07F-CAB3EBB4BD28}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sourcefilename">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-PROD\SSIS\customer_info.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CEAF0523-E01F-41F4-AD48-555C08AA4AE7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT [CUSTOMER_ID]&#xA;      ,[NAME]&#xA;      ,[CREATION_DATE]&#xA;      ,[ONE_TIME_DB]&#xA;      ,[CUSTOMER_CATEGORY]&#xA;      ,[OBJKEY]&#xA;      ,[OBJVERSION]&#xA;      ,[OBJID]&#xA;  FROM [PSDW_IFS].[dbo].[customer_info_tbl]&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_CustInfo_Select">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT [CUSTOMER_ID]
+      ,[NAME]
+      ,[CREATION_DATE]
+      ,[ONE_TIME_DB]
+      ,[CUSTOMER_CATEGORY]
+      ,[OBJKEY]
+      ,[OBJVERSION]
+      ,[OBJID]
+  FROM [PSDW_IFS].[dbo].[customer_info_tbl]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3BA0481C-6EDF-442C-9B53-5B8DF26DEAB2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT COUNT(*) AS cnt FROM [PSDW_IFS].[dbo].[customer_info_tbl]&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_Records_Count">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT COUNT(*) AS cnt FROM [PSDW_IFS].[dbo].[customer_info_tbl]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C5DE0B94-9D92-4E63-8CFA-5AB78BA54248}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="Replace (@[User::Sourcefilename],&quot;.csv&quot;,&quot;&quot;)+&quot;_&quot;  + &quot;tbl&quot; +&quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Targetfilename">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-PROD\SSIS\customer_info_tbl.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7ADB83F7-E938-4A93-A351-D9D4983546C3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="Replace (@[User::Sourcefilename],&quot;.csv&quot;,&quot;&quot;)+&quot;_&quot; + (DT_WSTR,4)YEAR(GETDATE()) + &quot;_&quot; + (DT_WSTR,4)MONTH(GETDATE()) + &quot;_&quot; + (DT_WSTR,4)DAY(GETDATE()) + &quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Targetfilename_DateTime">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-PROD\SSIS\customer_info_2024_12_13.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8BC775AA-8CD6-42B8-9258-5433D99DEF71}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TotalRecords">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Package Started"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DB0567EF-5E7A-4649-BE0E-A84BC1AA7F1F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Package Started"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+          SQLTask:SqlStatementSource="INSERT INTO [PSDW_IFS].[dbo].[az_upload_audit_log_tbl]&#xA;SELECT 'IFSCustomerInfo','Package Started','SQL to Azure Landing', '', '', 0, getdate(), ''&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4CD72AC1-5350-4BC5-867C-7662B4A1EE4C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Azure Blob Upload CSV"
+          DTS:CreationName="CopyToBlobTask"
+          DTS:Description="Azure Blob Upload Task"
+          DTS:DTSID="{0B4E70F5-0DD1-4006-8B65-0FC85ED6C109}"
+          DTS:ExecutableType="CopyToBlobTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Azure Blob Upload CSV"
+          DTS:TaskContact="Azure Blob Upload Task; (C) Microsoft Corporation; All Rights Reserved"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <CopyToBlobTask
+              ConnectionId="{E48B7F9F-B774-4BC1-A12A-28CADBE431A8}"
+              BlobContainer="landing"
+              BlobDirectory="ifs/customer_info/"
+              LocalDirectory="\\psfile3\Data Solutions\DW-PROD\SSIS\"
+              FileNameFilter="customer_info*csv*"
+              TimeRangeFrom="1/1/1900 12:00:00 AM -05:00"
+              TimeRangeTo="12/31/2200 12:00:00 AM -05:00"
+              SearchRecursively="0" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\File System Task - Change CSV Filename"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{691746D4-9F6E-481D-9B4A-892ACB6243FC}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task - Change CSV Filename"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::Sourcefilename"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::Targetfilename"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Generate CustInfo Files"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{EA1CE7FA-7D1B-4186-8D27-7F3CEECA0AAF}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Generate CustInfo Files"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager_csv]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager_csv]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CUSTOMER_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="CUSTOMER_ID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER_ID]"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="NAME"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[NAME]"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[NAME]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CREATION_DATE]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="CREATION_DATE"
+                          cachedScale="7"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CREATION_DATE]"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CREATION_DATE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[ONE_TIME_DB]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="ONE_TIME_DB"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ONE_TIME_DB]"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[ONE_TIME_DB]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CUSTOMER_CATEGORY]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="CUSTOMER_CATEGORY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER_CATEGORY]"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CUSTOMER_CATEGORY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJKEY]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OBJKEY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJKEY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJVERSION]"
+                          cachedDataType="wstr"
+                          cachedLength="14"
+                          cachedName="OBJVERSION"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJVERSION]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJID]"
+                          cachedDataType="wstr"
+                          cachedLength="18"
+                          cachedName="OBJID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="CUSTOMER_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="100"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CREATION_DATE]"
+                          dataType="dbTimeStamp2"
+                          name="CREATION_DATE"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ONE_TIME_DB]"
+                          dataType="wstr"
+                          length="20"
+                          name="ONE_TIME_DB" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CUSTOMER_CATEGORY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CUSTOMER_CATEGORY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          name="OBJID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC Get Records"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable">User::SQL_CustInfo_Select</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CUSTOMER_ID]
+      ,[NAME]
+      ,[CREATION_DATE]
+      ,[ASSOCIATION_NO]
+      ,[PARTY]
+      ,[DEFAULT_DOMAIN]
+      ,[DEFAULT_LANGUAGE]
+      ,[DEFAULT_LANGUAGE_DB]
+      ,[COUNTRY]
+      ,[COUNTRY_DB]
+      ,[PARTY_TYPE]
+      ,[PARTY_TYPE_DB]
+      ,[CORPORATE_FORM]
+      ,[IDENTIFIER_REFERENCE]
+      ,[IDENTIFIER_REF_VALIDATION]
+      ,[IDENTIFIER_REF_VALIDATION_DB]
+      ,[PICTURE_ID]
+      ,[ONE_TIME]
+      ,[ONE_TIME_DB]
+      ,[CUSTOMER_CATEGORY]
+      ,[CUSTOMER_CATEGORY_DB]
+      ,[B2B_CUSTOMER]
+      ,[B2B_CUSTOMER_DB]
+      ,[CUSTOMER_TAX_USAGE_TYPE]
+      ,[TEXT_ID$]
+      ,[OBJKEY]
+      ,[OBJVERSION]
+      ,[OBJID]
+      ,[meta_last_modified_date]
+      ,[meta_is_deleted]
+  FROM [PSDW_IFS_DV].[dbo].[customer_info_tbl]
+  order  by  [meta_last_modified_date] desc</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::SQL_CustInfo_Select</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_PR]"
+                      connectionManagerRefId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_PR]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_ID]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CUSTOMER_ID]"
+                          name="CUSTOMER_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[NAME]"
+                          name="NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CREATION_DATE]"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CREATION_DATE]"
+                          name="CREATION_DATE"
+                          scale="7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[ONE_TIME_DB]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[ONE_TIME_DB]"
+                          length="20"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[ONE_TIME_DB]"
+                          name="ONE_TIME_DB"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CUSTOMER_CATEGORY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_CATEGORY]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[CUSTOMER_CATEGORY]"
+                          name="CUSTOMER_CATEGORY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          name="OBJKEY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          length="14"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          name="OBJVERSION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJID]"
+                          length="18"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].Columns[OBJID]"
+                          name="OBJID"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          length="20"
+                          name="CUSTOMER_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="100"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CREATION_DATE]"
+                          dataType="dbTimeStamp2"
+                          name="CREATION_DATE"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[ONE_TIME_DB]"
+                          dataType="wstr"
+                          length="20"
+                          name="ONE_TIME_DB" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[CUSTOMER_CATEGORY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CUSTOMER_CATEGORY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output].ExternalColumns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          name="OBJID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_ID]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_ID]"
+                          name="CUSTOMER_ID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          name="NAME" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CREATION_DATE]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CREATION_DATE]"
+                          name="CREATION_DATE"
+                          scale="7" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ONE_TIME_DB]"
+                          dataType="wstr"
+                          length="20"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ONE_TIME_DB]"
+                          name="ONE_TIME_DB" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_CATEGORY]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[CUSTOMER_CATEGORY]"
+                          name="CUSTOMER_CATEGORY" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          name="OBJKEY" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          name="OBJVERSION" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[OBJID]"
+                          name="OBJID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Generate CustInfo Files\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::TotalRecords</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Generate CustInfo Files\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Generate CustInfo Files\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Sequence Container\Generate CustInfo Files\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Generate CustInfo Files.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Generate CustInfo Files\Row Count.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Sequence Container\Generate CustInfo Files.Paths[Row Count Output 1]"
+                  endId="Package\Sequence Container\Generate CustInfo Files\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Sequence Container\Generate CustInfo Files\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Package Completed"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{feba1550-c988-4004-aba3-a63e9da30287}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Package Completed"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [dbo].[az_upload_audit_log_tbl]
+SELECT '"+ @[System::PackageName] +"','Package Completed','SQL to Azure Landing', SUBSTRING('"+ @[User::Targetfilename] +"', 38, 35), '"+ @[User::CustInfo] +"', "+(DT_WSTR,12) @[User::TotalRecords] +", getdate(), ''"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[az_upload_audit_log_tbl]&#xA;SELECT 'LoadCustomerInfo','Package Completed','SQL to Azure Landing', SUBSTRING('\\psfile3\Data Solutions\DW-PROD\SSIS\customer_info_tbl.csv', 38, 35), 'customer_info_tbl', 0, getdate(), ''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{5AB1A8D9-EF7C-4F91-A344-F834D700BF61}"
+          DTS:From="Package\Sequence Container\Generate CustInfo Files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\File System Task - Change CSV Filename" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{5A00489D-9693-406D-9B6D-E8D5F24D6D49}"
+          DTS:From="Package\Sequence Container\File System Task - Change CSV Filename"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Azure Blob Upload CSV" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{0D6D0009-3E48-4C64-9C38-C9162F792BF2}"
+          DTS:From="Package\Sequence Container\Azure Blob Upload CSV"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\Package Completed" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{38FA52B6-5CB3-419D-B1C7-6ED23EF9E76B}"
+      DTS:From="Package\Package Started"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Sequence Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{F6812699-B14C-48D8-94F0-06420865C735}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{E9E82A53-2E29-4C80-AC59-C06CFCE3C8CF}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Package Failure"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{32a2f17b-0933-4ef1-9126-d5994b84104a}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Package Failure"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [PSDW_IFS_DV].[dbo].[az_upload_audit_log_tbl]
+SELECT "+ @[System::PackageName] +",'Package Failed', '', "+ @[User::CustInfo] +", 0, getdate(), "+ replace(@[System::ErrorDescription], "","") +""</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+              SQLTask:SqlStatementSource="INSERT INTO [PSDW_IFS_DV].[dbo].[az_upload_audit_log_tbl]&#xA;SELECT LoadCustomerInfo,'Package Failed', '', customer_info_tbl, 0, getdate(), " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Package Started"
+          TopLeft="600,13" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Sequence Container\Azure Blob Upload CSV"
+          TopLeft="106,162" />
+        <NodeLayout
+          Size="285,42"
+          Id="Package\Sequence Container\File System Task - Change CSV Filename"
+          TopLeft="63,89" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Sequence Container\Generate CustInfo Files"
+          TopLeft="106,13" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Sequence Container\Package Completed"
+          TopLeft="118,252" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="204.5,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="204.75,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="205.5,204">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="411,673"
+          Size="411,716"
+          Id="Package\Sequence Container"
+          TopLeft="482,114" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="683.75,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="158,42"
+          Id="Package.EventHandlers[OnError]\Package Failure"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Generate CustInfo Files">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records"
+          TopLeft="446,56" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Sequence Container\Generate CustInfo Files\Flat File Destination"
+          TopLeft="451,209" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Sequence Container\Generate CustInfo Files\Row Count"
+          TopLeft="642,128" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Generate CustInfo Files.Paths[Row Count Output 1]"
+          TopLeft="708.5,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-169.5,39"
+              Start="0,0"
+              End="-169.5,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="-4,19.5" />
+                  <mssgle:LineSegment
+                    End="-165.5,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-165.5,19.5"
+                    Point2="-169.5,19.5"
+                    Point3="-169.5,23.5" />
+                  <mssgle:LineSegment
+                    End="-169.5,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Generate CustInfo Files.Paths[OLE DB Source Output]"
+          TopLeft="543.5,98">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="165,30"
+              Start="0,0"
+              End="165,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="161,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="161,15"
+                    Point2="165,15"
+                    Point3="165,19" />
+                  <mssgle:LineSegment
+                    End="165,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Generate CustInfo Files\OLE_SRC Get Records">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

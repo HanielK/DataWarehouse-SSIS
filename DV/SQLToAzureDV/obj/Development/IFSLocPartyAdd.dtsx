@@ -1,0 +1,1864 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/12/2024 11:44:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VSHWAITHAKA01"
+  DTS:CreatorName="ps\haniel.waithaka"
+  DTS:DTSID="{48828336-7073-4AA8-8503-33EA59BAD0FD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="IFSLocPartyAdd"
+  DTS:PackageType="5"
+  DTS:VersionBuild="185"
+  DTS:VersionGUID="{191CCFE3-F947-4816-B329-2CCD7B349E16}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ErrorRecords_Connection Manager_csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{23875D43-FAB3-4527-9334-736C3CDFEDB0}"
+      DTS:ObjectName="ErrorRecords_Connection Manager_csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\psfile3\Data Solutions\DW-DEV\Error Records\LocationPartyAddress_errors.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LOCATION_ID"
+              DTS:DTSID="{45A733CF-115F-4203-AE80-D752CB870BD7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IDENTITY"
+              DTS:DTSID="{E5E707F1-423D-406E-859E-294ADA5E2B6C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PARTY_TYPE"
+              DTS:DTSID="{58606C4B-52AB-4A11-9762-C2135E4B8B8F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NAME"
+              DTS:DTSID="{4DA3F468-0414-4008-9A16-A39AE5D392B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION"
+              DTS:DTSID="{43CF4B8B-1FCD-4656-BE10-C460F775333F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LOCATION_SPECIFIC_ADDRESS"
+              DTS:DTSID="{26A0ECF9-FD59-4228-BE75-3C867857986E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ADDRESS1"
+              DTS:DTSID="{AF54F12F-2873-4137-B3A2-B2A9285CCB61}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZIP_CODE"
+              DTS:DTSID="{1E662528-06AE-4BBA-B87D-96C6F73A917E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CITY"
+              DTS:DTSID="{40256C83-ECDA-487B-8C79-0CEBC3D62F52}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STATE"
+              DTS:DTSID="{7D1A3032-A719-42AB-9623-07C4AD9BC0B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COUNTRY_CODE"
+              DTS:DTSID="{E33B9C0B-1939-420D-B6A3-A65F07833937}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COUNTY"
+              DTS:DTSID="{E40B6505-CFF5-43E5-BE23-A447C00A5F00}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRIMARY_ADDRESS"
+              DTS:DTSID="{29916C50-2999-40C1-91B6-C2ECF9D2E555}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJKEY"
+              DTS:DTSID="{EAD90FDE-C4F3-43C5-BA42-914B1361148B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="14"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJVERSION"
+              DTS:DTSID="{BC09DA5F-202B-448C-9E6F-E5A40BBD1147}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJID"
+              DTS:DTSID="{7455D5FA-E621-4B01-A1B1-B69460228BD3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{8B52B10B-8AA0-415B-B5CD-D9822C697714}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{81DF56A0-68BD-492F-AE02-B9E6E7117FBD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocPartyAdd_Flat File Connection Manager_csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{1E1EF10E-7318-427F-8CA2-43E6F3D46C17}"
+      DTS:ObjectName="LocPartyAdd_Flat File Connection Manager_csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="\\psfile3\Data Solutions\DW-DEV\SSIS\location_party_address_pub.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LOCATION_ID"
+              DTS:DTSID="{EBF56674-BD61-4E36-8E74-6B3815E16DC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IDENTITY"
+              DTS:DTSID="{45F24C60-8C8D-4CB4-9906-7D5767BCBD9D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PARTY_TYPE"
+              DTS:DTSID="{B49976D5-4D86-4C1C-A99B-68EC3220ABCD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NAME"
+              DTS:DTSID="{E69EA953-A1B4-4FA8-A29C-60E4B16DE725}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION"
+              DTS:DTSID="{F8574E77-1135-421B-ACB7-3FE0063792C8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LOCATION_SPECIFIC_ADDRESS"
+              DTS:DTSID="{5FD84C18-C145-4D92-9937-A511D231C480}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ADDRESS1"
+              DTS:DTSID="{A101CE56-E494-4FC4-BACD-D40EB2281CD3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZIP_CODE"
+              DTS:DTSID="{5814176E-36E7-4A00-8DA1-4D701D95E7DA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CITY"
+              DTS:DTSID="{7058BC8E-6DD0-4F57-8135-57256063F2AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STATE"
+              DTS:DTSID="{705AE2CF-92D7-4DAE-8863-3C9896420D24}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COUNTRY_CODE"
+              DTS:DTSID="{71A2B70D-8482-46DF-B711-F4ED0AE2AC3D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COUNTY"
+              DTS:DTSID="{8B14AD45-87DC-4A15-AAB3-7E841150F1F8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="5"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PRIMARY_ADDRESS"
+              DTS:DTSID="{56ACF495-E06E-4FDE-B851-82DA090881CF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJKEY"
+              DTS:DTSID="{C6004B29-3A5F-424F-87A2-F129739AB811}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="14"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJVERSION"
+              DTS:DTSID="{46AD40BC-CD1F-4540-8A9E-B391267D7038}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="18"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OBJID"
+              DTS:DTSID="{50085845-5433-416D-8CAE-18CB24918CE7}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+      DTS:ObjectName="NCDIASQ002DV.PSDW_IFS_DV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=NCDIASQ002DV;Initial Catalog=PSDW_IFS_DV;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-IFSLocPartyAdd-{BC5B107E-2583-43B6-9107-5F7747E77497}NCDIASQ002DV.PSDW_IFS_DV;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSIS Connection Manager for Azure Storage]"
+      DTS:CreationName="AzureStorage"
+      DTS:DTSID="{E48B7F9F-B774-4BC1-A12A-28CADBE431A8}"
+      DTS:ObjectName="SSIS Connection Manager for Azure Storage">
+      <DTS:ObjectData>
+        <AzureStorageConnectionManager
+          ConnectionString="AuthType=ServicePrincipal;ServicePrincipalId=bfd3016f-8155-471d-96ee-ae36a8623576;TenantId=d1f8ad8c-baed-4518-a48c-feade60a79f4;AccountName=psdwdvstordata;DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;"
+          ConnectByProxy="False">
+          <ServicePrincipalKey
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAANVaXw3HPZkyfY4rcoX3NqwAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABd0MfojTfgshiucBjggKiNAAAAAASAAACgAAAAEAAAAHU7aNcJJYQSNx6KuXECMGlYAAAAOWZfUPCU6P34rHZEDbX8YAJpUkGFLokl5ruF5QEyIKjoQXcYbEJaJJi0gsRB/5vXWK0XdsI8n42lojglQ9akBylrKsREpQCOWYupW9gBXNxNptYWJoiMlhQAAAAdg/ljk68YJ3mgmMasnK/WE4az3A</ServicePrincipalKey>
+        </AzureStorageConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{834D8045-63F9-4F8B-B8CA-DB00C4E8CB85}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filepath">
+      <DTS:VariableValue
+        DTS:DataType="8">landing</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D644C2FF-6211-4FDB-AA78-7573498C731A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LocPartAdd">
+      <DTS:VariableValue
+        DTS:DataType="8">location_party_address_pub_tbl</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4501DAAD-AA91-4D4E-AF79-C7E68BE28865}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Sourcefilename">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-DEV\SSIS\location_party_address_pub.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8BE441DF-E223-44B9-B718-90E423FEA98B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT [LOCATION_ID]&#xA;      ,[IDENTITY]&#xA;      ,[PARTY_TYPE]&#xA;      ,[NAME]&#xA;      ,[DESCRIPTION]&#xA;      ,[LOCATION_SPECIFIC_ADDRESS]&#xA;      ,[ADDRESS1]&#xA;      ,[ZIP_CODE]&#xA;      ,[CITY]&#xA;      ,[STATE]&#xA;      ,[COUNTRY_CODE]&#xA;      ,[COUNTY]&#xA;      ,[PRIMARY_ADDRESS]&#xA;      ,[OBJKEY]&#xA;      ,[OBJVERSION]&#xA;      ,[OBJID]&#xA;  FROM [PSDW_IFS_DV].[dbo].[location_party_address_pub_tbl]&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_LocPartyAdd_Select">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT [LOCATION_ID]
+      ,[IDENTITY]
+      ,[PARTY_TYPE]
+      ,[NAME]
+      ,[DESCRIPTION]
+      ,[LOCATION_SPECIFIC_ADDRESS]
+      ,[ADDRESS1]
+      ,[ZIP_CODE]
+      ,[CITY]
+      ,[STATE]
+      ,[COUNTRY_CODE]
+      ,[COUNTY]
+      ,[PRIMARY_ADDRESS]
+      ,[OBJKEY]
+      ,[OBJVERSION]
+      ,[OBJID]
+  FROM [PSDW_IFS_DV].[dbo].[location_party_address_pub_tbl]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B83D3C57-571F-4350-A54A-C9E8FEF71823}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT COUNT(*) AS cnt FROM [PSDW_IFS_DV].[dbo].[location_party_address_pub_tbl]&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_Records_Count">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT COUNT(*) AS cnt FROM [PSDW_IFS_DV].[dbo].[location_party_address_pub_tbl]</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EDC5D9B7-DD56-46D3-A13C-62B9C116A7B3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="Replace (@[User::Sourcefilename],&quot;.csv&quot;,&quot;&quot;)+&quot;_&quot;  + &quot;tbl&quot; +&quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Targetfilename">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-DEV\SSIS\location_party_address_pub_tbl.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{044B77C1-572A-44D7-A0C9-B1A25ABADFF6}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="Replace (@[User::Sourcefilename],&quot;.csv&quot;,&quot;&quot;)+&quot;_&quot; + (DT_WSTR,4)YEAR(GETDATE()) + &quot;_&quot; + (DT_WSTR,4)MONTH(GETDATE()) + &quot;_&quot; + (DT_WSTR,4)DAY(GETDATE()) + &quot;.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Targetfilename_DateTime">
+      <DTS:VariableValue
+        DTS:DataType="8">\\psfile3\Data Solutions\DW-DEV\SSIS\location_party_address_pub_2024_12_6.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0C19E58D-1D4B-411A-A887-F9F4ADC8EB2C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TotalRecords">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Package Started"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8867885c-fdf4-4f94-821e-65185f21e4db}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Package Started"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+          SQLTask:SqlStatementSource="INSERT INTO [PSDW_IFS_DV].[dbo].[az_upload_audit_log_tbl]&#xA;SELECT 'IFSLocPartyAdd','Package Started','SQL to Azure Landing', '', '', 0, getdate(), ''&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{04660CC5-9D0E-4E41-A05B-FDFE1612D094}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Azure Blob Upload CSV"
+          DTS:CreationName="CopyToBlobTask"
+          DTS:Description="Azure Blob Upload Task"
+          DTS:DTSID="{23be3e90-fa79-4bd7-bc55-c34c4d4434e9}"
+          DTS:ExecutableType="CopyToBlobTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Azure Blob Upload CSV"
+          DTS:TaskContact="Azure Blob Upload Task; (C) Microsoft Corporation; All Rights Reserved"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <CopyToBlobTask
+              ConnectionId="{E48B7F9F-B774-4BC1-A12A-28CADBE431A8}"
+              BlobContainer="landing"
+              BlobDirectory="ifs/location_party_address_pub/"
+              LocalDirectory="\\psfile3\Data Solutions\DW-DEV\SSIS\"
+              FileNameFilter="location_party_address_pub*csv*"
+              TimeRangeFrom="1/1/1900 12:00:00 AM -05:00"
+              TimeRangeTo="12/31/2200 12:00:00 AM -05:00"
+              SearchRecursively="0" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\File System Task - Change CSV Filename"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{eae61062-3eab-4d0f-8d77-230c2ce57c63}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task - Change CSV Filename"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::Sourcefilename"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::Targetfilename"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Generate LocPartyAdd Files"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{1a94d5d4-6985-4fb5-b2fd-b5b5d6b70eb1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Generate LocPartyAdd Files"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocPartyAdd_Flat File Connection Manager_csv]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocPartyAdd_Flat File Connection Manager_csv]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[LOCATION_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="LOCATION_ID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LOCATION_ID]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOCATION_ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[IDENTITY]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="IDENTITY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[IDENTITY]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[IDENTITY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[PARTY_TYPE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="PARTY_TYPE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PARTY_TYPE]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[PARTY_TYPE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="NAME"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[NAME]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[NAME]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="DESCRIPTION"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[LOCATION_SPECIFIC_ADDRESS]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="LOCATION_SPECIFIC_ADDRESS"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LOCATION_SPECIFIC_ADDRESS]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOCATION_SPECIFIC_ADDRESS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[ADDRESS1]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="ADDRESS1"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ADDRESS1]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[ADDRESS1]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[ZIP_CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="ZIP_CODE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ZIP_CODE]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[ZIP_CODE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[CITY]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="CITY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CITY]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[CITY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[STATE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="STATE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[STATE]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[STATE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[COUNTRY_CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="COUNTRY_CODE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[COUNTRY_CODE]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[COUNTRY_CODE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[COUNTY]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="COUNTY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[COUNTY]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[COUNTY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[PRIMARY_ADDRESS]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="PRIMARY_ADDRESS"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PRIMARY_ADDRESS]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[PRIMARY_ADDRESS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJKEY]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OBJKEY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJKEY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJVERSION]"
+                          cachedDataType="wstr"
+                          cachedLength="14"
+                          cachedName="OBJVERSION"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJVERSION]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].Columns[OBJID]"
+                          cachedDataType="wstr"
+                          cachedLength="18"
+                          cachedName="OBJID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="4000"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PARTY_TYPE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="PARTY_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          name="OBJID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LOCATION_ID]"
+                          dataType="wstr"
+                          length="30"
+                          name="LOCATION_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[IDENTITY]"
+                          dataType="wstr"
+                          length="50"
+                          name="IDENTITY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="100"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LOCATION_SPECIFIC_ADDRESS]"
+                          dataType="wstr"
+                          length="5"
+                          name="LOCATION_SPECIFIC_ADDRESS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ADDRESS1]"
+                          dataType="wstr"
+                          length="4000"
+                          name="ADDRESS1" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ZIP_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="ZIP_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CITY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CITY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[STATE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="STATE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[COUNTRY_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="COUNTRY_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[COUNTY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="COUNTY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PRIMARY_ADDRESS]"
+                          dataType="wstr"
+                          length="5"
+                          name="PRIMARY_ADDRESS" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination 1"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[ErrorRecords_Connection Manager_csv]"
+                      connectionManagerRefId="Package.ConnectionManagers[ErrorRecords_Connection Manager_csv]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[LOCATION_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="LOCATION_ID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[LOCATION_ID]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOCATION_ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[IDENTITY]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="IDENTITY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[IDENTITY]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IDENTITY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[PARTY_TYPE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="PARTY_TYPE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[PARTY_TYPE]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PARTY_TYPE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[NAME]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="NAME"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[NAME]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NAME]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[DESCRIPTION]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="DESCRIPTION"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[LOCATION_SPECIFIC_ADDRESS]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="LOCATION_SPECIFIC_ADDRESS"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[LOCATION_SPECIFIC_ADDRESS]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOCATION_SPECIFIC_ADDRESS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[ADDRESS1]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="ADDRESS1"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ADDRESS1]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ADDRESS1]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[ZIP_CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="ZIP_CODE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ZIP_CODE]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ZIP_CODE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[CITY]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="CITY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[CITY]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CITY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[STATE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="STATE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[STATE]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[STATE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[COUNTRY_CODE]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="COUNTRY_CODE"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[COUNTRY_CODE]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COUNTRY_CODE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[COUNTY]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="COUNTY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[COUNTY]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COUNTY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[PRIMARY_ADDRESS]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="PRIMARY_ADDRESS"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[PRIMARY_ADDRESS]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PRIMARY_ADDRESS]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[OBJKEY]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OBJKEY"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJKEY]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[OBJVERSION]"
+                          cachedDataType="wstr"
+                          cachedLength="14"
+                          cachedName="OBJVERSION"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[OBJID]"
+                          cachedDataType="wstr"
+                          cachedLength="18"
+                          cachedName="OBJID"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[LOCATION_ID]"
+                          dataType="wstr"
+                          length="30"
+                          name="LOCATION_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[IDENTITY]"
+                          dataType="wstr"
+                          length="50"
+                          name="IDENTITY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[PARTY_TYPE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="PARTY_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="4000"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="100"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[LOCATION_SPECIFIC_ADDRESS]"
+                          dataType="wstr"
+                          length="5"
+                          name="LOCATION_SPECIFIC_ADDRESS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ADDRESS1]"
+                          dataType="wstr"
+                          length="4000"
+                          name="ADDRESS1" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ZIP_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="ZIP_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[CITY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CITY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[STATE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="STATE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[COUNTRY_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="COUNTRY_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[COUNTY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="COUNTY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[PRIMARY_ADDRESS]"
+                          dataType="wstr"
+                          length="5"
+                          name="PRIMARY_ADDRESS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          name="OBJID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="i4"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="i4"
+                          name="ErrorColumn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable">User::SQL_LocPartyAdd_Select</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+                      connectionManagerRefId="Package.ConnectionManagers[NCDIASQ002DV.PSDW_IFS_DV]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOCATION_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOCATION_ID]"
+                          length="30"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOCATION_ID]"
+                          name="LOCATION_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[IDENTITY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IDENTITY]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[IDENTITY]"
+                          name="IDENTITY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[PARTY_TYPE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PARTY_TYPE]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[PARTY_TYPE]"
+                          name="PARTY_TYPE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[NAME]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[NAME]"
+                          name="NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOCATION_SPECIFIC_ADDRESS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOCATION_SPECIFIC_ADDRESS]"
+                          length="5"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[LOCATION_SPECIFIC_ADDRESS]"
+                          name="LOCATION_SPECIFIC_ADDRESS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[ADDRESS1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ADDRESS1]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[ADDRESS1]"
+                          name="ADDRESS1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[ZIP_CODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ZIP_CODE]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[ZIP_CODE]"
+                          name="ZIP_CODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[CITY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CITY]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[CITY]"
+                          name="CITY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[STATE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[STATE]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[STATE]"
+                          name="STATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[COUNTRY_CODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COUNTRY_CODE]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[COUNTRY_CODE]"
+                          name="COUNTRY_CODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[COUNTY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COUNTY]"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[COUNTY]"
+                          name="COUNTY"
+                          truncationRowDisposition="RedirectRow" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[PRIMARY_ADDRESS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PRIMARY_ADDRESS]"
+                          length="5"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[PRIMARY_ADDRESS]"
+                          name="PRIMARY_ADDRESS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          length="50"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJKEY]"
+                          name="OBJKEY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          length="14"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJVERSION]"
+                          name="OBJVERSION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJID]"
+                          length="18"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBJID]"
+                          name="OBJID"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOCATION_ID]"
+                          dataType="wstr"
+                          length="30"
+                          name="LOCATION_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IDENTITY]"
+                          dataType="wstr"
+                          length="50"
+                          name="IDENTITY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PARTY_TYPE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="PARTY_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                          dataType="wstr"
+                          length="4000"
+                          name="NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="100"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LOCATION_SPECIFIC_ADDRESS]"
+                          dataType="wstr"
+                          length="5"
+                          name="LOCATION_SPECIFIC_ADDRESS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ADDRESS1]"
+                          dataType="wstr"
+                          length="4000"
+                          name="ADDRESS1" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ZIP_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="ZIP_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CITY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="CITY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[STATE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="STATE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COUNTRY_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          name="COUNTRY_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COUNTY]"
+                          dataType="wstr"
+                          length="4000"
+                          name="COUNTY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PRIMARY_ADDRESS]"
+                          dataType="wstr"
+                          length="5"
+                          name="PRIMARY_ADDRESS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          name="OBJKEY" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          name="OBJVERSION" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          name="OBJID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOCATION_ID]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOCATION_ID]"
+                          name="LOCATION_ID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IDENTITY]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IDENTITY]"
+                          name="IDENTITY" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PARTY_TYPE]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PARTY_TYPE]"
+                          name="PARTY_TYPE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                          name="NAME" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOCATION_SPECIFIC_ADDRESS]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LOCATION_SPECIFIC_ADDRESS]"
+                          name="LOCATION_SPECIFIC_ADDRESS" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ADDRESS1]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ADDRESS1]"
+                          name="ADDRESS1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ZIP_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ZIP_CODE]"
+                          name="ZIP_CODE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CITY]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CITY]"
+                          name="CITY" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[STATE]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[STATE]"
+                          name="STATE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COUNTRY_CODE]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COUNTRY_CODE]"
+                          name="COUNTRY_CODE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COUNTY]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COUNTY]"
+                          name="COUNTY" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PRIMARY_ADDRESS]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PRIMARY_ADDRESS]"
+                          name="PRIMARY_ADDRESS" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJKEY]"
+                          name="OBJKEY" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          dataType="wstr"
+                          length="14"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJVERSION]"
+                          name="OBJVERSION" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJID]"
+                          dataType="wstr"
+                          length="18"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBJID]"
+                          name="OBJID" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Generate LocPartyAdd Files\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::TotalRecords</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Generate LocPartyAdd Files\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Generate LocPartyAdd Files\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Sequence Container\Generate LocPartyAdd Files\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Generate LocPartyAdd Files.Paths[OLE DB Source Error Output]"
+                  endId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1.Inputs[Flat File Destination Input]"
+                  name="OLE DB Source Error Output"
+                  startId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Error Output]" />
+                <path
+                  refId="Package\Sequence Container\Generate LocPartyAdd Files.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Generate LocPartyAdd Files\Row Count.Inputs[Row Count Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Sequence Container\Generate LocPartyAdd Files.Paths[Row Count Output 1]"
+                  endId="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Sequence Container\Generate LocPartyAdd Files\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Package Completed"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{bb07ca4e-310c-4f3a-8bf5-693c33fa5d66}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Package Completed"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO [dbo].[az_upload_audit_log_tbl]
+SELECT '"+ @[System::PackageName] +"','Package Completed','SQL to Azure Landing', SUBSTRING('"+ @[User::Targetfilename] +"', 38, 35), '"+ @[User::LocPartAdd] +"', "+(DT_WSTR,12) @[User::TotalRecords] +", getdate(), ''"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{BC5B107E-2583-43B6-9107-5F7747E77497}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[az_upload_audit_log_tbl]&#xA;SELECT 'IFSLocPartyAdd','Package Completed','SQL to Azure Landing', SUBSTRING('\\psfile3\Data Solutions\DW-DEV\SSIS\location_party_address_pub_tbl.csv', 38, 35), 'location_party_address_pub_tbl', 0, getdate(), ''" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{5D0ED4C5-F73D-411C-8042-CC0610444477}"
+          DTS:From="Package\Sequence Container\Generate LocPartyAdd Files"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\File System Task - Change CSV Filename" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{8FFB4392-22E0-4F40-A845-5BE527C46573}"
+          DTS:From="Package\Sequence Container\File System Task - Change CSV Filename"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Azure Blob Upload CSV" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{9966AE6D-4A7B-41EA-8AD8-AC662644349E}"
+          DTS:From="Package\Sequence Container\Azure Blob Upload CSV"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\Package Completed" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{63E49573-EEFA-4047-9543-EAC02CCAA433}"
+      DTS:From="Package\Package Started"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Sequence Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Package Started"
+          TopLeft="516,139" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Sequence Container\Azure Blob Upload CSV"
+          TopLeft="42,172" />
+        <NodeLayout
+          Size="285,42"
+          Id="Package\Sequence Container\File System Task - Change CSV Filename"
+          TopLeft="4.5,88" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Sequence Container\Generate LocPartyAdd Files"
+          TopLeft="44,15" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Sequence Container\Package Completed"
+          TopLeft="50,281" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="149.75,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="143.5,130">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="139.5,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67"
+              Start="0,0"
+              End="0,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="296,462"
+          Size="296,505"
+          Id="Package\Sequence Container"
+          TopLeft="444,233" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="594,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Generate LocPartyAdd Files">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination 1"
+          TopLeft="742,179" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Sequence Container\Generate LocPartyAdd Files\Row Count"
+          TopLeft="347,159" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Sequence Container\Generate LocPartyAdd Files\Flat File Destination"
+          TopLeft="530,258" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source"
+          TopLeft="560,69" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Generate LocPartyAdd Files.Paths[Row Count Output 1]"
+          TopLeft="413.5,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="204.5,57"
+              Start="0,0"
+              End="204.5,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="200.5,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="200.5,28.5"
+                    Point2="204.5,28.5"
+                    Point3="204.5,32.5" />
+                  <mssgle:LineSegment
+                    End="204.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Generate LocPartyAdd Files.Paths[OLE DB Source Output]"
+          TopLeft="613.666666666667,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-200.166666666667,48"
+              Start="0,0"
+              End="-200.166666666667,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.4905422446406" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.4905422446406"
+                    Point2="0,19.4905422446406"
+                    Point3="-4,19.4905422446406" />
+                  <mssgle:LineSegment
+                    End="-196.166666666667,19.4905422446406" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-196.166666666667,19.4905422446406"
+                    Point2="-200.166666666667,19.4905422446406"
+                    Point3="-200.166666666667,23.4905422446406" />
+                  <mssgle:LineSegment
+                    End="-200.166666666667,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Generate LocPartyAdd Files.Paths[OLE DB Source Error Output]"
+          TopLeft="663.333333333333,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="171.166666666667,68"
+              Start="0,0"
+              End="171.166666666667,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.6116015132408" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.6116015132408"
+                    Point2="0,27.6116015132408"
+                    Point3="4,27.6116015132408" />
+                  <mssgle:LineSegment
+                    End="167.166666666667,27.6116015132408" />
+                  <mssgle:CubicBezierSegment
+                    Point1="167.166666666667,27.6116015132408"
+                    Point2="171.166666666667,27.6116015132408"
+                    Point3="171.166666666667,31.6116015132408" />
+                  <mssgle:LineSegment
+                    End="171.166666666667,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="22.1494270833335,32.6116015132408,126.8678125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Generate LocPartyAdd Files\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
